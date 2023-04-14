@@ -1,7 +1,8 @@
-/*
- * Główny plik dla stylów.
- * Wszystkie partials podłączamy tutaj.
- */
-
-// Style dla pliku z przykładem HTML fragmentu
-@import './example';
+@import './partials/general';
+@import './partials/header-home';
+@import './partials/header-my-library';
+@import './partials/main';
+@import './partials/movie-item';
+@import './partials/pagination';
+@import './partials/movie-modal';
+@import './partials/footer';
