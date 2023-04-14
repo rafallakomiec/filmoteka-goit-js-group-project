@@ -2,5 +2,12 @@
 //     path to link static images relative to scss partial here
 // PLEASE USE BEM METHODOLOGY
 // delete these comments before pull request
-.my-library-header {
+
+.header{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.header-form{
+    margin: 10px;
 }

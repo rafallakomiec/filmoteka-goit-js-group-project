@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-form {
+  margin: 10px;
+}/*# sourceMappingURL=main.css.map */
