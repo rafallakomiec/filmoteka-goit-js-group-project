@@ -1,7 +1,43 @@
-<!-- 
-    ../images/
-    path to link static images relative to html partial here
-    delete comment before pull request
--->
+<button class="modal-open" data-modal-open>TESTOWY PRZYCISK OTWIERANIA MODALA</button>
 
-<!-- Markup here both for backdrop and modal window -->
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button class="close-button" data-modal-close>X</button>
+    <img class="modal-poster" src="./images/phone/home-header-bg-phone.jpg" />
+    <div class="modal-description">
+      <h2 class="modal__title">FILM TITLE</h2>
+      <div class="modal-properties">
+        <p class="modal-property">
+          <span class="modal-property__title">Vote/Votes</span
+          ><span class="modal-property__value modal-property__highlight">7</span>/<span
+            class="modal-property__value"
+            >1000</span
+          >
+        </p>
+        <p class="modal-property">
+          <span class="modal-property__title">Popularity</span
+          ><span class="modal-property__value">100</span>
+        </p>
+        <p class="modal-property">
+          <span class="modal-property__title">Original Title</span
+          ><span class="modal-property__value">FILM TITLE</span>
+        </p>
+        <p class="modal-property">
+          <span class="modal-property__title">Genre</span
+          ><span class="modal-property__value">GENRE</span>
+        </p>
+                <p class="modal-property">
+          <p class="modal-property__title">About</p
+          ><span class="modal-property__value">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptas non error animi, tenetur ullam similique dignissimos quisquam quis iste eveniet vero harum rem architecto quae enim, nam cum quasi.</span>
+        </p>
+      </div>
+          <div class="modal-buttons">
+        <button class="modal-buttons__watched">Add to watched</button>
+        <button class="modal-buttons__queue">Add to queue</button>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="./js/modules/openMovieModal.js"></script>
