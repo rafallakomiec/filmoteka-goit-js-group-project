@@ -1,3 +1,17 @@
+/*
+ * Główny plik dla stylów.
+ * Wszystkie partials podłączamy tutaj.
+ */
+
+// Style dla pliku z przykładem HTML fragmentu
+@import './utils/variables';
+
+@import './base/reset';
+@import './base/typography';
+
+@import './components/main-header';
+@import './components/icon';
+
 @import './partials/general';
 @import './partials/header-home';
 @import './partials/header-my-library';
