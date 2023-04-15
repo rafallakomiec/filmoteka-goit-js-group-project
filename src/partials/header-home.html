@@ -1,9 +1,43 @@
-<!-- 
-    ../images/
-    path to link static images relative to html partial here
-    delete comment before pull request
 
-    href to Home is "./index.html"
-    href to My library is "./my-library.html"
--->
-<header class="home-header"></header>
+<header class="header">
+  <div class="header-container">
+    <div class="header-menu">
+      <a href="./index.html" class="link">
+        <svg class="icon-film">
+          <use href="./images/svg.film.svg#icon-film"></use>
+        </svg>
+        <span class="logo-film">Filmoteka</span>
+      </a>
+      <nav class="header-navigation">
+        <ul class="header-navigation__list">
+          <li >
+            <a
+              href="./index.html"
+              class="header-navigation__link header-navigation__link--underline"
+              >HOME</a
+            >
+          </li>
+          <li>
+            <a href="./my-library.html" class="header-navigation__link"
+              >MY LIBRARY</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <form class="header-form">
+      <input
+        class="header-form__input"
+        type="text"
+        placeholder="Movie search"
+        name="search"
+      />
+      <button class="header-form__btn" type="submit" >
+        <svg class="header-form__icon" width="12" height="12">
+          <use href="./images/magnifier.svg#icon-magnifier"></use>
+        </svg>
+      </button>
+    </form>
+    <p class="header-form__misstatement ">Search result not successful. Enter the correct movie name and</p>
+  </div>
+</header>
