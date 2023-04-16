@@ -3,5 +3,23 @@
 // PLEASE USE BEM METHODOLOGY
 // delete these comments before pull request
 
+// .footer {
+// }
 .footer {
+  background-color: #f7f7f7;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__logo {
+  width: 14px;
+  height: 12.75px;
+}
+
+.developer {
+  color: darkblue;
+  border: #f7f7f7;
 }
