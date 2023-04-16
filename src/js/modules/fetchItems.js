@@ -1,11 +1,13 @@
+import axios from 'axios';
+
 const API_KEY = '1c8f6b064eb2a1f6bd306bc5a0f759ec';
 
-const fetchTrendingMovies = async () => {
+export const fetchTrendingMovies = async () => {
   try {
-    const response = await fetch(
+    const response = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`,
     );
-    const data = await response.json();
+    const data = await response.data;
     const movies = await data.results;
     return movies;
   } catch (error) {
@@ -13,12 +15,12 @@ const fetchTrendingMovies = async () => {
   }
 };
 
-const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
+export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
   try {
-    const response = await fetch(
+    const response = await axios.get(
       ` https://api.themoviedb.org/3/search/company?api_key=${API_KEY}&page=${page}&query=${searchQuery};`,
     );
-    const data = await response.json();
+    const data = await response.data;
     const movies = await data.results;
     if (movies.length > 0) {
       return movies;
