@@ -98,3 +98,114 @@ img {
   width: 24px;
   height: 24px;
 }
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.header {
+  max-height: 230px;
+  background-size: cover;
+  background-position: center;
+  background-color: #333333;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation__logo {
+  display: flex;
+  align-items: center;
+}
+.navigation__title {
+  color: #ffffff;
+  margin-left: 10px;
+  font-size: 30px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navigation__title:hover, .navigation__title:focus {
+  color: #FF6B08;
+}
+.navigation__nav {
+  display: flex;
+  align-items: flex-end;
+}
+.navigation__nav--list {
+  color: #ffffff;
+  position: relative;
+  display: flex;
+}
+.navigation__nav--item {
+  text-transform: uppercase;
+  align-items: center;
+  position: relative;
+}
+.navigation__nav--item:last-child {
+  margin-left: 39px;
+}
+.navigation__nav--link {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navigation__nav--link:hover, .navigation__nav--link:focus {
+  color: #FF6B08;
+}
+.navigation__nav--link:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #FF6B08;
+  border-radius: 2px;
+  transform: scale(0, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navigation__nav--link--active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #FF6B08;
+  border-radius: 2px;
+  transform: scale(1, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navigation__nav--link:hover:after {
+  transform: scale(1, 1);
+}
+
+.library {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+}
+.library__div {
+  display: flex;
+  gap: 15px;
+}
+.library__btn {
+  width: 136px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.56);
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  transition: all 0.2s ease-in-out;
+}
+.library__btn:active, .library__btn--selected {
+  background-color: #FF6B08;
+  border: 1px solid #FF6B08;
+  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+}
+.library__btn:hover {
+  transform: scale(1.03);
+}

@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://rafallakomiec.github.io/filmoteka-goit-js-group-project/",
   "scripts": {
-    "dev": "parcel src/*.html",
+    "dev": "parcel watch src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka-goit-js-group-project/"
   },
   "repository": {
