@@ -17,7 +17,7 @@ export const fetchTrendingMovies = async () => {
 export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
   try {
     const { data } = await axios.get(
-      ` https://api.themoviedb.org/3/search/company?api_key=${API_KEY}&page=${page}&query=${searchQuery};`,
+      ` https://api.themoviedb.org/3/search/company?api_key=${API_KEY}&page=${page}&query=${searchQuery}`,
     );
     const movies = await data.results;
     if (movies.length > 0) {
