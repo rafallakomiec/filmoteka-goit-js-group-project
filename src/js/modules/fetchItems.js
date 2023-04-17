@@ -7,8 +7,7 @@ export const fetchTrendingMovies = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`,
     );
-    const movies = await data.results;
-    return movies;
+    return data; // => {page, results, total_pages, total_results}
   } catch (error) {
     console.log(error.message);
   }
@@ -17,11 +16,10 @@ export const fetchTrendingMovies = async () => {
 export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
   try {
     const { data } = await axios.get(
-      ` https://api.themoviedb.org/3/search/company?api_key=${API_KEY}&page=${page}&query=${searchQuery}`,
+      ` https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&page=${page}&query=${searchQuery}`,
     );
-    const movies = await data.results;
-    if (movies.length > 0) {
-      return movies;
+    if (data.results.length > 0) {
+      return data; // => {page, results, total_pages, total_results}
     } else {
       alert(`${searchQuery} doesn't exist.`);
     }
