@@ -1,11 +1,11 @@
 // === HEADER ===
 
 .header {
-    max-height: 230px;
+    min-height: 230px;
 
     background-size: cover;
     background-position: center;
-    background-color: $gray;
+
 }
 
 // === NAV ===
@@ -87,6 +87,30 @@
             &:hover:after {
                 transform: scale(1, 1);
             }
+        }
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .navigation {
+        &__title {
+        display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navigation {
+        &__container {
+        padding-top: 46px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .navigation {
+        &__container {
+        padding-top: 41px;
         }
     }
 }
