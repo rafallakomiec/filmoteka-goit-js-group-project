@@ -1,4 +1,4 @@
-.header__toggle-label {
+.header-toggler__label {
     width: 50px;
     height: 20px;
     position: relative;
@@ -23,27 +23,27 @@
     }
 }
 
-.header__toggle-input {
+.header-toggler__input {
     width: 0;
     height: 0;
     visibility: hidden;
 }
 
-.header__toggle-input:checked + .header__toggle-label {
+.header-toggler__input:checked + .header-toggler__label {
 background: #242424;
 }
 
-.header__toggle-input:checked + .header__toggle-label:after {
+.header-toggler__input:checked + .header-toggler__label:after {
     left: 49px;
     transform: translateX(-100%);
     background: linear-gradient(180deg, #777, #3a3a3a);
 }
 
-.header__toggle-label:active:after {
+.header-toggler__label:active:after {
     width: 26px;
 }
 
-.header__toggle-input:checked + .header__toggle-label + .background {
+.header-toggler__input:checked + .header-toggler__label + .background {
     background: #242424;
 }
 

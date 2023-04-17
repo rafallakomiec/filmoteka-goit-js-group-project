@@ -1,20 +1,49 @@
-<!-- 
-    ../images/
-    path to link static images relative to html partial here
-    delete comment before pull request
+<header class="header header--main"  id="go-top">
+    <div class="header-container">
+        <div class="header-menu">
+            <!-- LOGO -->
+            <div class="header-logo">
+                <a class="header-logo__link" href="index.html">
+                    <svg class="header-logo__icon icon">
+                        <use href="./images/icons.svg#icon-film"></use>
+                    </svg>
+                    <span class="header-logo__title main-header">Filmoteka</span>
+                </a>
+            </div>
 
-    href to Home is "./index.html"
-    href to My library is "./my-library.html"
--->
-<header class="home-header">
-  <nav class="navigation">
-    <ul class="navigation__list">
-      <li class="navigation__item list">
-        <a class="navigation__link link navigation__link--active link" href="index.html">home</a>
-      </li>
-      <li class="navigation__item list">
-        <a class="navigation__link" href="my-library.html">my library</a>
-      </li>
-    </ul>
-  </nav>
+            <!-- NAVIGATION      -->
+            <nav class="header-nav">
+                <ul class="header-nav__list">
+                    <li class="header-nav__item list">
+                        <a class="header-nav__link header-nav__link--active link" href="index.html">home</a>
+                    </li>
+                    <li class="header-nav__item list">
+                        <a class="header-nav__link link" href="my-library.html">my library</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- SEARCH FORM -->
+        <form class="header-form">
+            <input
+                class="header-form__input"
+                type="text"
+                placeholder="Movie search"
+                name="search"
+            />
+            <button class="header-form__btn" type="submit" >
+                <svg class="header-form__icon" width="12" height="12">
+                    <use href="./images/magnifier.svg#icon-magnifier"></use>
+                </svg>
+            </button>
+        </form>
+
+        <p class="header-form__misstatement">Search result not successful. Enter the correct movie name and</p>
+
+        <div class="header-toggler">
+            <input class="header-toggler__input" type="checkbox" name="theme" id="darkmode-toggle" />
+            <label class="header-toggler__label" for="darkmode-toggle"> </label>
+        </div>
+    </div>
 </header>
