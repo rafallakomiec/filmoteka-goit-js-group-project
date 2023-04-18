@@ -1,91 +1,91 @@
-// ../../images/
-//     path to link static images relative to scss partial here
-// PLEASE USE BEM METHODOLOGY
-// delete these comments before pull request
-.movie {
-  &-item {
-    height: 450px;
+@import './variables';
+
+.movie-item {
+  max-height: 440px;
+  max-width: 280px;
+
+  &__details {
+    font-family: $basicFont, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+  }
+  &__rating {
+    background-color: $bgColor2;
+    color: $txtColor1;
+    width: 36px;
+    height: 16px;
+    line-height: 14px;
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  &__year,
+  &__line {
+    color: $txtColor4;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 12px;
+    margin-bottom: 0px;
+    color: $txtColor2;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+  &__genre {
+    margin-top: 3px;
+    margin-bottom: 0px;
+    color: $txtColor4;
+  }
+
+  &__poster {
+    background-image: url('../images/phone/postersmall.png');
     width: 280px;
-
-    &__details {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-        Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 16px;
-      letter-spacing: 0em;
-    }
-    &__rating {
-      background-color: #ff6b08;
-      color: #fffefe;
-      width: 36px;
-      height: 16px;
-      border-radius: 5px;
-      display: inline-flex;
-      justify-content: center;
-    }
-    &__year {
-      color: #ff6b08;
-    }
-    &__title {
-      font-weight: 500;
-      font-size: 12px;
-      margin-top: 8px;
-      margin-bottom: 0px;
-      color: #000;
-      text-transform: uppercase;
-      font-style: normal;
-    }
-    &__description {
-      margin-top: 3px;
-      margin-bottom: 0px;
-      color: #ff6b08;
-    }
-
-    &__poster {
-      background-image: url(/src/images/phone/postersmall.png);
-      width: 280px;
-      height: 398px;
-    }
-
-    &__overview {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-    &__line {
-      color: #ff6b08;
-    }
+    height: 398px;
+    margin-bottom: 8px;
   }
 }
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .movie-item {
+    max-height: 495px;
+  }
   .movie-item__poster {
-    background-image: url('/src/images/tablet/postermedium.png');
+    background-image: url('../images/tablet/postermedium.png');
     width: 336px;
     height: 445px;
   }
 }
-@media (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .movie-item__poster {
-    background-image: url('/src/images/desktop/posterbig.png');
-    width: 395px;
+    background-image: url('../images/desktop/posterbig.png');
+    width: 394px;
     height: 574px;
+    margin-bottom: 12px;
   }
   .movie-item__title {
     font-size: 20px;
+    line-height: 24px;
     margin-bottom: 5px;
   }
-  .movie-item__description {
-    font-size: 20px;
+
+  .movie-item__rating {
+    width: 40px;
+    height: 20px;
+    font-size: 12px;
+    filter: none;
   }
-  .movie-item__line {
+
+  .movie-item__details {
     font-size: 20px;
-  }
-  .movie-item__year {
-    font-size: 20px;
+    line-height: 24px;
   }
 
   .movie-item {
-    width: 395px;
-    height: 620px;
+    max-width: 394px;
+    max-height: 634px;
   }
 }
