@@ -3,7 +3,7 @@ const API_KEY = 'api_key=1c8f6b064eb2a1f6bd306bc5a0f759ec';
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_LANGUAGE = 'language=pl-PL';
 
-const fetchGenresList = async () => {
+export const fetchGenresList = async () => {
   const { data } = await axios.get(`${API_URL}genre/movie/list?${API_KEY}&${API_LANGUAGE}`);
   const genres = data.genres;
   return genres;
