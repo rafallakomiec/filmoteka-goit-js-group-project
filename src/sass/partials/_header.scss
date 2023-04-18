@@ -2,7 +2,7 @@
 .header {
     margin: 0 auto;
     padding: 40px 0 44px 0;
-    height: 216px;
+    min-height: 230px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -85,7 +85,7 @@
     margin: 0 auto;
 
     @media (max-width: 767.98px) {
-        max-width: 320px;
+        min-width: 320px;
         padding: 0 20px;
     }
 
@@ -137,6 +137,12 @@
         &:focus {
             color: $orange;
         }
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .header-logo__title {
+        display: none;
     }
 }
 
@@ -227,15 +233,15 @@
     position: relative;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 10px;
+    min-width: 280px;
+
 
     @media screen and (min-width: 768px) {
-        width: 336px;
-        margin-bottom: 20px;
+        min-width: 336px;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 394px;
+        max-width: 394px;
     }
 
     &__input {
