@@ -5,7 +5,7 @@ const API_LANGUAGE = 'language=pl-PL';
 
 const fetchGenresList = async () => {
   const { data } = await axios.get(`${API_URL}genre/movie/list?${API_KEY}&${API_LANGUAGE}`);
-  const genres = await data.genres;
+  const genres = data.genres;
   return genres;
 };
 
