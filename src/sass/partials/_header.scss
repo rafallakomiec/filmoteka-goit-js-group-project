@@ -116,11 +116,15 @@
 // LOGO
 
 .header-logo {
-    display: flex;
-    align-items: center;
 
-    @media screen and (min-width: 768px) {
-        gap: 10px;
+    &__link {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
     }
 
     &__title {
@@ -133,14 +137,6 @@
         &:focus {
             color: $orange;
         }
-    }
-
-    &__icon {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        left: 32px;
-        top: 45px;
     }
 }
 
@@ -298,6 +294,37 @@
     }
 }
 
+
+// === GENRE OPTIONS  ===
+
+.header__tools {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.genre,
+.genre-choice {
+    font: normal 11px/22px Arial, Sans-Serif;
+    color: $black;
+    border: 1px solid #ccc;
+}
+
+.header__genre-option {
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+// TOGGLER
+
+.header-toggler {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
 // LIBRARY
 
 .header-library {
@@ -333,12 +360,4 @@
         transform: scale(1.03);
         }
     }
-}
-
-// TOGGLER
-
-.header-toggler {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
 }
