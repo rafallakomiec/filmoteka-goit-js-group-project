@@ -1,7 +1,85 @@
-// ../../images/
-//     path to link static images relative to scss partial here
-// PLEASE USE BEM METHODOLOGY
-// delete these comments before pull request
+@import './variables';
 
 .footer {
+  background-color: $bgColor3;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  margin-top: 40px;
+
+  &__container {
+    max-width: 240px;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+
+  &__text {
+    font-family: $basicFont, sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    color: $txtColor3;
+  }
+
+  &__text-link {
+    color: $txtColor3;
+  }
+}
+
+.heart-icon__container {
+  position: relative;
+  padding: 0;
+  height: 13px;
+  width: 34px;
+}
+
+.heart-icon__img {
+  transition: transform 0.5s ease-in-out;
+  width: 14px;
+  height: 13px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  fill: $txtColor4;
+}
+
+.footer__container:has(.footer__text-link:hover) .heart-icon__img {
+  transform: scale(1.4);
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 79px;
+    margin-top: 60px;
+
+    &__container {
+      max-width: 600px;
+    }
+
+    &__text {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    height: 77px;
+  }
 }
