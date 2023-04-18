@@ -27,3 +27,13 @@ export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
     console.log(error.message);
   }
 };
+
+export const fetchMovieById = async movieId => {
+  try {
+    const response = await axios.get(`${API_URL}movie/${movieId}?${API_KEY}&${API_LANGUAGE}`);
+    const movie = response.data;
+    return movie;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
