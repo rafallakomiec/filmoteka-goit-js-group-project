@@ -1,43 +1,38 @@
-
 <header class="header">
-  <div class="header-container">
-    <div class="header-menu">
-      <a href="./index.html" class="link">
-        <svg class="icon-film">
-          <use href="./images/svg.film.svg#icon-film"></use>
+  <div class="header__container">
+    <div class="header__menu">
+      <a href="./index.html" class="logo">
+        <svg class="logo__icon">
+          <use href="./images/icons.svg#icon-film"></use>
         </svg>
-        <span class="logo-film">Filmoteka</span>
+        <span class="logo__txt">Filmoteka</span>
       </a>
-      <nav class="header-navigation">
-        <ul class="header-navigation__list">
-          <li >
-            <a
-              href="./index.html"
-              class="header-navigation__link header-navigation__link--underline"
-              >HOME</a
-            >
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li>
+            <a href="./index.html" class="header__nav-link header__nav-link--underline"> HOME </a>
           </li>
           <li>
-            <a href="./my-library.html" class="header-navigation__link"
-              >MY LIBRARY</a
-            >
+            <a href="./my-library.html" class="header__nav-link"> MY LIBRARY </a>
           </li>
         </ul>
       </nav>
     </div>
-    <form class="header-form">
+    <form class="header__form">
       <input
-        class="header-form__input"
+        class="header__form-input"
         type="text"
-        placeholder="Movie search"
+        placeholder="Type here to search movies..."
         name="search"
       />
-      <button class="header-form__btn" type="submit" >
-        <svg class="header-form__icon" width="12" height="12">
-          <use href="./images/magnifier.svg#icon-magnifier"></use>
+      <button class="header__form-btn" type="submit">
+        <svg class="header__form-icon" width="12" height="12">
+          <use href="./images/icons.svg#icon-search"></use>
         </svg>
       </button>
     </form>
-    <p class="header-form__misstatement ">Search result not successful. Enter the correct movie name and</p>
+    <p class="header__form-error-txt">
+      Search failed... Please enter a correct movie title and try again.
+    </p>
   </div>
 </header>
