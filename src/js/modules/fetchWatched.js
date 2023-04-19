@@ -1,1 +1,2 @@
-import { fetchItems } from './fetchItems';
+import { load } from "../storage/storage"
+
