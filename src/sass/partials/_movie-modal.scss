@@ -85,6 +85,7 @@
     &-icon {
       height: 100%;
       width: 100%;
+      stroke: $txtColor2;
     }
   }
 
@@ -200,6 +201,7 @@
     min-height: 44px;
     border-radius: 5px;
     padding: 10px;
+    cursor: pointer;
 
     @media screen and (min-width: 768px) {
       max-width: 125px;
