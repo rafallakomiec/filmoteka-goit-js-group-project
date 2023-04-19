@@ -4,6 +4,7 @@ import '../sass/main.scss';
 import { fetchTrendingMovies } from './fetchItems';
 import { renderMovies } from './modules/displayItems';
 
-const movies = fetchTrendingMovies();
-renderMovies(movies);
-
+( async () => {
+  const movies = await fetchTrendingMovies();
+  renderMovies(movies);
+})();
