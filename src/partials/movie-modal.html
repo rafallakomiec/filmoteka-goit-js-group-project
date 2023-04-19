@@ -2,39 +2,41 @@
 
 <div class="backdrop is-hidden" data-modal>
   <div class="modal">
-    <div class="modal-container">
-      <button class="modal-close-button" data-modal-close>
-        <svg class="modal-close-button__icon">
+    <div class="modal__container">
+      <button class="modal__close-btn" data-modal-close>
+        <svg class="modal__close-btn-icon">
           <use href="./images/icons.svg#icon-close-btn"></use>
         </svg>
       </button>
-      <img class="modal-poster" src="./images/phone/home-header-bg-phone.jpg" />
-      <div class="modal-description">
-        <h2 class="modal-title">Film title</h2>
-        <div class="modal-properties">
-          <div class="modal-property">
-            <p class="modal-column modal-property__title">Vote / Votes</p>
-            <p class="modal-column modal-property__value">
-              <span class="modal-highlight">7.3</span> /
-              <span class="modal-property__value modal-highlight-alternative">1000</span>
+      <img class="modal__poster" src="./images/phone/home-header-bg-phone.jpg" />
+      <div class="modal__description">
+        <h2 class="modal__title">Film title</h2>
+        <div class="modal__properties">
+          <div class="modal__property">
+            <p class="modal__column modal__prop-title">Vote / Votes</p>
+            <p class="modal__column modal__prop-value">
+              <span class="modal__highlight">7.3</span> /
+              <!--vote average -->
+              <span class="modal__highlight-alt">1000</span>
+              <!-- total votes -->
             </p>
           </div>
-          <div class="modal-property">
-            <span class="modal-column modal-property__title">Popularity</span
-            ><span class="modal-column modal-property__value">100</span>
+          <div class="modal__property">
+            <span class="modal__column modal__prop-title">Popularity</span>
+            <span class="modal__column modal__prop-value">100</span>
           </div>
-          <div class="modal-property">
-            <span class="modal-column modal-property__title">Original Title</span
-            ><span class="modal-column modal-property__value">FILM TITLE</span>
+          <div class="modal__property">
+            <span class="modal__column modal__prop-title">Original Title</span>
+            <span class="modal__column modal__prop-value">ORIGINAL TITLE</span>
           </div>
-          <div class="modal-property">
-            <span class="modal-column modal-property__title">Genre</span
-            ><span class="modal-column modal-property__value">GENRE</span>
+          <div class="modal__property">
+            <span class="modal__column modal__prop-title">Genre</span>
+            <span class="modal__column modal__prop-value">GENRE</span>
           </div>
-          <div class="modal-about">
-            <p class="modal-about__title">ABOUT</p>
-            <span class="modal-about__value"
-              >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati dolores eos iste
+          <div class="modal__about">
+            <h3 class="modal__about-title">ABOUT</h3>
+            <span class="modal__about-value">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati dolores eos iste
               distinctio? Neque consequuntur voluptatum quis facere perspiciatis hic quas quam,
               fugiat blanditiis nisi veniam ab possimus qui maxime tempora corporis odio deleniti
               alias nesciunt nulla sed? Excepturi eos illo cupiditate libero harum odio rerum soluta
@@ -43,15 +45,13 @@
               qui, pariatur modi sint hic officia, aspernatur inventore repellendus ipsam corrupti
               delectus praesentium! Eligendi numquam ea, perferendis cupiditate provident cum minima
               autem reprehenderit rem ipsum fugiat praesentium et tempore optio ratione explicabo!
-              Obcaecati?</span
-            >
+              Obcaecati?
+            </span>
           </div>
         </div>
-        <div class="modal-buttons">
-          <button class="modal-highlight modal-buttons__button modal-buttons__watched">
-            ADD TO WATCHED
-          </button>
-          <button class="modal-buttons__button modal-buttons__queue">ADD TO QUEUE</button>
+        <div class="modal__buttons">
+          <button class="modal__highlight modal__btn modal__btn-to-watched">ADD TO WATCHED</button>
+          <button class="modal__btn modal__btn-to-queue">ADD TO QUEUE</button>
         </div>
       </div>
     </div>
