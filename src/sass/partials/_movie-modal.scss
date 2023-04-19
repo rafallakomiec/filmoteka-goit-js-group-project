@@ -1,4 +1,230 @@
-// ../../images/
-//     path to link static images relative to scss partial here
-// PLEASE USE BEM METHODOLOGY
-// delete these comments before pull request
+@import './variables';
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: fixed;
+  display: flex;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 20px 20px 38px;
+  width: 100%;
+  min-height: 100%;
+  background-color: #00000033;
+  transition: opacity $transitionDur $transitionTimingFn,
+    visibility $transitionDur $transitionTimingFn, pointer-events $transitionDur $transitionTimingFn;
+
+  @media screen and (min-width: 768px) {
+    padding: 220px 32px 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 190px 32px 32px;
+  }
+}
+
+.modal {
+  font-family: $basicFont, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 280px;
+  background-color: $txtColor1;
+  color: $txtColor2;
+  margin: auto;
+  padding: 48px 20px 40px;
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 1px 0px #00000024, 0px 1px 3px 0px #0000001f;
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 72px 40px 36px;
+    max-width: 704px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 40px 12px;
+    max-width: 810px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    @media screen and (min-width: 768px) {
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: row;
+    }
+  }
+
+  &__close-btn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    transition: box-shadow $transitionDur $transitionTimingFn;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0px 2px 2px 0px #0000001f, 0px 1px 2px 0px #00000014,
+        0px 3px 1px 0px #0000001a;
+    }
+    &-icon {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__poster {
+    max-width: 240px;
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+    @media screen and (min-width: 768px) {
+      max-width: 264px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 375px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+
+    @media screen and (min-width: 768px) {
+      margin-left: 68px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-left: 16px;
+    }
+  }
+
+  &__title {
+    margin-block: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 768px) {
+      margin: 0 0 20px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      font-size: 30px;
+      line-height: 35px;
+    }
+  }
+
+  &__column {
+    flex: 50%;
+  }
+
+  &__property {
+    margin: 8px 0;
+    display: flex;
+    flex-basis: 50%;
+    line-height: 16px;
+
+    &-title {
+      color: $txtColor7;
+      margin: 0;
+    }
+    &-value {
+      margin: 0;
+    }
+  }
+
+  &__about {
+    flex-direction: column;
+    margin: 20px 0;
+
+    &-title {
+      margin-bottom: 8px;
+    }
+
+    &-value {
+      margin: 0;
+      line-height: 20px;
+    }
+  }
+  &__highlight,
+  &__btn--to-watched {
+    color: $txtColor1;
+    border: none;
+    border-radius: 5px;
+    background-color: $bgColor2;
+    padding: 1px 10px;
+    font-weight: 700;
+
+    &-alternative {
+      padding: 1px 4px;
+      background-color: $bgColor3;
+    }
+  }
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      gap: 15px;
+      justify-content: left;
+    }
+  }
+
+  &__btn {
+    max-width: 110px;
+    max-height: 44px;
+    min-width: 110px;
+    min-height: 44px;
+    border-radius: 5px;
+    padding: 10px;
+
+    @media screen and (min-width: 768px) {
+      max-width: 125px;
+      min-width: 125px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 136px;
+      min-width: 136px;
+    }
+
+    &--to-queue {
+      color: $txtColor2;
+      border: solid 2px $txtColor2;
+      background-color: transparent;
+      font-weight: 700;
+    }
+  }
+
+  &-open {
+    display: flex;
+    margin: 0 auto;
+    font-size: 30px;
+    background-color: red;
+    border-radius: 50;
+    cursor: pointer;
+  }
+}
