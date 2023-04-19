@@ -1,5 +1,8 @@
 $basicFont: 'Roboto';
 
+$transitionDur: 250ms;
+$transitionTimingFn: cubic-bezier(0.4, 0, 0.2, 1);
+
 $bgColor1: #262c33;
 $bgColor2: #ff6b01;
 $bgColor3: #f7f7f7;
@@ -11,3 +14,4 @@ $txtColor3: #545454;
 $txtColor4: #ff6b08;
 $txtColor5: #a7151a;
 $txtColor6: #ff001b;
+$txtColor7: #8c8c8c;
