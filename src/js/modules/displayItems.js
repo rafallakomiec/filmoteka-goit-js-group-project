@@ -1,7 +1,5 @@
 import { changeGenresIdToName } from './changeGenresIdToName';
 
-import { fetchTrendingMovies } from './fetchItems';
-
 export const renderMovies = async function (movies) {
   const results = movies.results;
   let moviesHTML = await Promise.all(
