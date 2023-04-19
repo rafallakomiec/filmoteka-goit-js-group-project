@@ -9,6 +9,10 @@
 }
 
 .main-content__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 16px;
 }
 
 .main-content__pagination {
