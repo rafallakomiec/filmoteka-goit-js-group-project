@@ -93,6 +93,7 @@ export const renderMovies = async function (movies) {
       };
 
       const movieItem = document.createElement('li');
+
       movieItem.style.margin = '20px';
       movieItem.addEventListener('click', handleClick);
       movieItem.className = 'movie-item';
