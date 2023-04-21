@@ -15,10 +15,9 @@ window.addEventListener('load', async event => {
   }
 });
 
-const searchInput = document.querySelector('.header__form-input');
-const searchButton = document.querySelector('.header__form-btn');
+const searchForm = document.querySelector('.header__form');
 
-searchButton.addEventListener('click', async e => {
+searchForm.addEventListener('submit', async e => {
   e.preventDefault();
   const movieTitle = searchInput.value.trim();
   try {
