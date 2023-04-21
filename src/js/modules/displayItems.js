@@ -72,7 +72,16 @@ export const renderMovies = async function (movies) {
   const results = movies.results;
   let moviesHTML = await Promise.all(
     results.map(async item => {
-      let { genre_ids, title, poster_path, vote_average, release_date, id } = item;
+      let {
+        genre_ids,
+        original_title,
+        poster_path,
+        vote_average,
+        release_date,
+        id,
+        original_name,
+        first_air_date,
+      } = item;
 
       const genresNames = await changeGenresIdToName(genre_ids);
 
@@ -85,15 +94,23 @@ export const renderMovies = async function (movies) {
 
       const movieItem = document.createElement('li');
 
+      movieItem.style.margin = '20px';
       movieItem.addEventListener('click', handleClick);
       movieItem.className = 'movie-item';
       movieItem.setAttribute('data-movieID', id);
       movieItem.innerHTML = `<img class="movie-item__poster" src="https://image.tmdb.org/t/p/w500/${poster_path}"/>
     <div class="movie-item__details">
-      <h2 class="movie-item__title">${title}</h2>
+      <h2 class="movie-item__title">${
+        original_title === undefined ? original_name : original_title
+      }</h2>
       <span class="movie-item__genre">${genresNames.join(', ')}</span>
       <span class="movie-item__line">|</span>
-      <span class="movie-item__year">${release_date ? getDate(release_date) : ''}</span>
+      <span class="movie-item__year">${(release_date
+        ? release_date
+        : first_air_date
+        ? first_air_date
+        : 'no-data'
+      ).slice(0, 4)}</span>
       <span class="movie-item__rating">${vote_average.toFixed(1)}</span>
     </div>`;
       return movieItem;
