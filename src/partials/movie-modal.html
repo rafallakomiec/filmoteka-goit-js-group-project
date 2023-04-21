@@ -1,7 +1,78 @@
-<!-- 
-    ../images/
-    path to link static images relative to html partial here
-    delete comment before pull request
--->
+<button class="modal-open" data-modal-open>TESTOWY PRZYCISK OTWIERANIA MODALA</button>
 
-<!-- Markup here both for backdrop and modal window -->
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <div class="modal__container">
+      <button class="modal__close-btn" data-modal-close>
+        
+        <svg class="modal__close-btn-icon">
+          <use href="./images/icons.svg#icon-close-btn"></use>
+        </svg>
+      </button>
+      <div class="modal__content">
+      <img
+        id="modal-poster"
+        class="modal__poster"
+        src="./images/phone/postersmall.png"
+        srcset="
+          ./images/phone/postersmall.png   240w,
+          ./images/tablet/postermedium.png 264w,
+          ./images/desktop/posterbig.png   375w
+        "
+        sizes="(min-width: 1280px) 375px, (min-width: 768px) 264px, 240px"
+      />
+      <div class="modal__description">
+        <h2 id="modal-film-title" class="modal__title">Film title</h2>
+        <div class="modal__properties">
+          <div class="modal__property">
+            <p class="modal__column modal__property-title">Vote / Votes</p>
+            <p class="modal__column modal__property-value">
+              <span id="modal-vote-average" class="modal__highlight">0</span> /
+              <!--vote average -->
+              <span id="modal-votes-total" class="modal__highlight-alt">0</span>
+              <!-- total votes -->
+            </p>
+          </div>
+          <div class="modal__property">
+            <span class="modal__column modal__property-title">Popularity</span>
+            <span id="modal-popularity" class="modal__column modal__property-value">0</span>
+          </div>
+          <div class="modal__property">
+            <span class="modal__column modal__property-title">Original Title</span>
+            <span id="modal-original-title" class="modal__column modal__property-value"
+              >ORIGINAL TITLE</span
+            >
+          </div>
+          <div class="modal__property">
+            <span class="modal__column modal__property-title">Genre</span>
+            <span id="modal-genre" class="modal__column modal__property-value">GENRE</span>
+          </div>
+          <div class="modal__about">
+            <h3 class="modal__about-title">ABOUT</h3>
+            <span id="modal-about" class="modal__about-value">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati dolores eos iste
+              distinctio? Neque consequuntur voluptatum quis facere perspiciatis hic quas quam,
+              fugiat blanditiis nisi veniam ab possimus qui maxime tempora corporis odio deleniti
+              alias nesciunt nulla sed? Excepturi eos illo cupiditate libero harum odio rerum soluta
+              vitae? Provident quo inventore eveniet, pariatur nesciunt recusandae deleniti minus?
+              Numquam veritatis, enim dolore accusantium sequi consequuntur eveniet illum assumenda
+              qui, pariatur modi sint hic officia, aspernatur inventore repellendus ipsam corrupti
+              delectus praesentium! Eligendi numquam ea, perferendis cupiditate provident cum minima
+              autem reprehenderit rem ipsum fugiat praesentium et tempore optio ratione explicabo!
+              Obcaecati?
+            </span>
+          </div>
+        </div>
+      </div>
+        <div class="modal__buttons">
+          <button id="modal-button-watched" class="modal__btn modal__btn--to-watched">
+            ADD TO WATCHED
+          </button>
+          <button id="modal-button-queue" class="modal__btn modal__btn--to-queue">
+            ADD TO QUEUE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

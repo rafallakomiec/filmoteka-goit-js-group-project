@@ -1,4 +1,4 @@
-<header class="header header--main"  id="go-top">
+<!-- <header class="header header--main"  id="go-top">
     <div class="header-container">
         <div class="header-menu">
             <!-- LOGO -->
@@ -74,4 +74,43 @@
             <label class="header-toggler__label" for="darkmode-toggle"> </label>
         </div>
     </div>
+</header> -->
+
+<header class="header">
+  <div class="header__container">
+    <div class="header__menu">
+      <a href="./index.html" class="logo">
+        <svg class="logo__icon">
+          <use href="./images/icons.svg#icon-film"></use>
+        </svg>
+        <span class="logo__txt">Filmoteka</span>
+      </a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li>
+            <a href="./index.html" class="header__nav-link header__nav-link--underline"> HOME </a>
+          </li>
+          <li>
+            <a href="./my-library.html" class="header__nav-link"> MY LIBRARY </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <form class="header__form">
+      <input
+        class="header__form-input"
+        type="text"
+        placeholder="Type here to search movies..."
+        name="search"
+      />
+      <button class="header__form-btn" type="submit">
+        <svg class="header__form-icon" width="12" height="12">
+          <use href="./images/icons.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+    <!-- <p class="header__form-error-txt">
+      Search failed... Please enter a correct movie title and try again.
+    </p> -->
+  </div>
 </header>
