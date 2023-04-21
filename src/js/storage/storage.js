@@ -6,6 +6,7 @@ export const save = (key, value) => {
         console.error("Set state error: ", error.message);
     }
 };
+
 export const load = key => {
     try {
         const serializedState = localStorage.getItem(key);
@@ -14,6 +15,7 @@ export const load = key => {
         console.error("Get state error: ", error.message);
     }
 };
+
 export const clear = key => {
     try {
         localStorage.removeItem(key);
@@ -21,3 +23,4 @@ export const clear = key => {
         console.error("Clear state error: ", error.message);
     }
 };
+
