@@ -1,15 +1,11 @@
-<button class="modal-open" data-modal-open>TESTOWY PRZYCISK OTWIERANIA MODALA</button>
-
-<div class="backdrop is-hidden" data-modal>
+<div class="backdrop is-hidden">
   <div class="modal">
     <div class="modal__container">
-      <button class="modal__close-btn" data-modal-close>
-        
+      <button class="modal__close-btn">
         <svg class="modal__close-btn-icon">
           <use href="./images/icons.svg#icon-close-btn"></use>
         </svg>
       </button>
-      <div class="modal__content">
       <img
         id="modal-poster"
         class="modal__poster"
@@ -28,7 +24,7 @@
             <p class="modal__column modal__property-title">Vote / Votes</p>
             <p class="modal__column modal__property-value">
               <span id="modal-vote-average" class="modal__highlight">0</span> /
-              <!--vote average -->
+              <!-- vote average -->
               <span id="modal-votes-total" class="modal__highlight-alt">0</span>
               <!-- total votes -->
             </p>
@@ -39,9 +35,9 @@
           </div>
           <div class="modal__property">
             <span class="modal__column modal__property-title">Original Title</span>
-            <span id="modal-original-title" class="modal__column modal__property-value"
-              >ORIGINAL TITLE</span
-            >
+            <span id="modal-original-title" class="modal__column modal__property-value">
+              ORIGINAL TITLE
+            </span>
           </div>
           <div class="modal__property">
             <span class="modal__column modal__property-title">Genre</span>
@@ -64,14 +60,13 @@
           </div>
         </div>
       </div>
-        <div class="modal__buttons">
-          <button id="modal-button-watched" class="modal__btn modal__btn--to-watched">
-            ADD TO WATCHED
-          </button>
-          <button id="modal-button-queue" class="modal__btn modal__btn--to-queue">
-            ADD TO QUEUE
-          </button>
-        </div>
+      <div class="modal__buttons">
+        <button id="modal-button-watched" class="modal__btn modal__btn--to-watched">
+          ADD TO WATCHED
+        </button>
+        <button id="modal-button-queue" class="modal__btn modal__btn--to-queue">
+          ADD TO QUEUE
+        </button>
       </div>
     </div>
   </div>

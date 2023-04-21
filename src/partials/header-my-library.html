@@ -1,44 +1,10 @@
-<header class="header header--library" id="go-top">
-    <div class="header-container">
-        <div class="header-menu">
-            <!-- LOGO -->
-            <div class="header-logo">
-                <a class="header-logo__link" href="index.html">
-                    <svg class="header-logo__icon icon">
-                        <use href="./images/svg.film.svg#icon-film"></use>
-                    </svg>
-                    <span class="header-logo__title main-header">Filmoteka</span>
-                </a>
-            </div>
-            
-            <!-- NAVIGATION      -->
-            <nav class="header-nav">
-                <ul class="header-nav__list">
-                    <li class="header-nav__item list">
-                        <a class="header-nav__link link" href="index.html">home</a>
-                    </li>
-                    <li class="header-nav__item list">
-                        <a class="header-nav__link header-nav__link--active link" href="my-library.html">my library</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        
-        <!-- LIBRARY BUTTONS -->
-        <div class="header-library">
-            <div class="header-library__div">
-                <button class="header-library__btn header-library__btn--selected btn" id="btn-watched" js-btn-watched>
-                    Watched
-                </button>
-                <button class="header-library__btn btn" id="btn-queue" js-btn-queue>Queue</button>
-            </div>
-        </div>
-        
-        <div class="header-toggler">
-            <input class="header-toggler__input" type="checkbox" name="theme" id="darkmode-toggle" />
-            <label class="header-toggler__label" for="darkmode-toggle"> </label>
-        </div>
-    </div>
-</header>
-
-
+<div class="header__my-library-menu">
+  <button
+    class="header__my-library-btn header__my-library-btn--selected"
+    id="btn-watched"
+    js-btn-watched
+  >
+    Watched
+  </button>
+  <button class="header__my-library-btn" id="btn-queue" js-btn-queue>Queue</button>
+</div>

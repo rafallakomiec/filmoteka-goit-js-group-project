@@ -1,153 +1,57 @@
-// === HEADER ===
+.header__my-library-menu {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 280px;
+  margin: 60px auto 16px;
+  gap: 20px;
 
-.header {
-    min-height: 230px;
+  @media screen and (min-width: 768px) {
+    margin: 40px auto 16px;
+    gap: 32px;
+    width: 100%;
+  }
 
-    background-size: cover;
-    background-position: center;
-
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+  }
 }
 
-// === NAV ===
+.header__my-library-btn {
+  width: 130px;
+  height: 44px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid $txtColor1;
+  border-radius: 5px;
+  color: $txtColor1;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out, filter 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
 
-.navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    width: 152px;
+  }
 
-    &__logo {
-        display: flex;
-        align-items: center;
-    }
+  @media screen and (min-width: 1280px) {
+    width: 147px;
+    height: 42px;
+  }
 
-    &__title {
-        color: $white;
-        margin-left: 10px;
-        font-size: 30px;
-        transition: color $shift;
-    
-        &:hover,
-        &:focus {
-            color: $orange;
-        }
-    }
+  &:active,
+  &--selected {
+    background-color: $txtColor4;
+    border: 1px solid $txtColor4;
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  }
 
-    &__nav {
-        display: flex;
-        align-items: flex-end;
-        
-        &--list {
-            color: $white;
-            position: relative;
-            display: flex;
-        }
-
-        &--item {
-            text-transform: uppercase;
-            align-items: center;
-            position: relative;
-        
-            &:last-child {
-                margin-left: 39px;
-            }
-        }
-
-        &--link {
-            transition: color $shift;
-        
-            &:hover,
-            &:focus {
-                color: $orange;
-            }
-        
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 3px;
-                background: $orange;
-                border-radius: 2px;
-                transform: scale(0, 1);
-                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            }
-        
-            &--active:after {
-                content: '';
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 3px;
-                background: $orange;
-                border-radius: 2px;
-                transform: scale(1, 1);
-                transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-            }
-        
-            &:hover:after {
-                transform: scale(1, 1);
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 479px) {
-    .navigation {
-        &__title {
-        display: none;
-        }
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .navigation {
-        &__container {
-        padding-top: 46px;
-        }
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .navigation {
-        &__container {
-        padding-top: 41px;
-        }
-    }
-}
-
-// === LIBRARY btns ===
-.library {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 45px;
-
-    &__div {
-        display: flex;
-        gap: 15px;
-    }
-
-    &__btn {
-        width: 136px;
-        height: 44px;
-        background: rgba(0, 0, 0, 0.56);
-        border: 1px solid $white;
-        color: $white;
-        text-transform: uppercase;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 16px;
-        transition: all 0.2s ease-in-out;
-
-        &:active,
-        &--selected {
-            background-color: $orange;
-            border: 1px solid $orange;
-            filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-        }
-
-        &:hover {
-            transform: scale(1.03);
-        }
-    }
+  &:hover {
+    transform: scale(1.03);
+  }
 }
