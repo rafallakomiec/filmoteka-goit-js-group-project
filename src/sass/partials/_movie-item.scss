@@ -3,6 +3,7 @@
 .movie-item {
   max-height: 440px;
   max-width: 280px;
+  cursor: pointer;
 
   &__details {
     font-family: $basicFont, sans-serif;

@@ -2,8 +2,6 @@ export const openMovieModal = async () => {
   const qs = s => document.querySelector(s);
   const toggleModal = () => {
     refs.modal.classList.toggle('is-hidden');
-    console.log(refs.movies);
-    console.log(document.getElementsByClassName('movie-item'));
   };
   const refs = {
     modal: qs('[data-modal]'),
@@ -17,18 +15,25 @@ export const openMovieModal = async () => {
     modalOriginalTitle: qs('#modal-original-title'),
     modalGenre: qs('#modal-genre'),
     modalAbout: qs('#modal-about'),
+    modalContent: qs('#modal__content'),
 
     //buttons
     modalBtnWatched: qs('#modal-button-watched'),
     modalBtnQueue: qs('#modal-button-queue'),
-    modalBtnOpen: qs('[data-modal-open]'),
     modalBtnClose: qs('[data-modal-close]'),
 
     //movie-data
-    movies: Array.from(document.getElementsByClassName('movie-item'), movie => movie.className),
+    movies: qs('.main-content__list'),
   };
 
   //OPENING MODAL
-  refs.modalBtnOpen.addEventListener('click', toggleModal);
-  refs.modalBtnClose.addEventListener('click', toggleModal);
+  refs.movies.addEventListener('click', e => {
+    if (e.target.classList.contains('movie-item')) {
+      toggleModal();
+    }
+  });
+  //CLOSING MODAL
+  refs.modalBtnClose.addEventListener('click', () => {
+    toggleModal();
+  });
 };
