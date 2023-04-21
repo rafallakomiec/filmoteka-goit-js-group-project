@@ -17,15 +17,8 @@
 @import './partials/general';
 @import './partials/header';
 @import './partials/main';
+@import './partials/content-layout';
 @import './partials/movie-item';
 @import './partials/pagination';
 @import './partials/movie-modal';
 @import './partials/footer';
-@import './content-layout';
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-}
