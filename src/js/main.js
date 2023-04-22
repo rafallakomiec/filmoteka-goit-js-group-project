@@ -37,12 +37,12 @@ const onSearchFormSubmit = async event => {
 };
 
 const onMovieCardSelection = async event => {
-  if (event.currentTarget.nodeName !== 'LI') {
+  if (event.target.nodeName !== 'LI') {
     return;
   }
 
   const modalDOM = document.querySelector('.movie-modal-backdrop');
-  const movieID = event.currentTarget.dataset.movieID;
+  const movieID = event.target.dataset.movieID;
   const movieObject = await fetchMovieById(movieID);
   await renderModal(modalDOM, movieObject);
   await openMovieModal(movieID);
