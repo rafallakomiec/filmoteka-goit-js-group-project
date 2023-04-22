@@ -1,4 +1,20 @@
-// ../../images/
-//     path to link static images relative to scss partial here
-// PLEASE USE BEM METHODOLOGY
-// delete these comments before pull request
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body.light-theme {
+  background-color: $txtColor1;
+  color: $txtColor2;
+}
+
+body.dark-theme {
+  background-color: $bgColor1;
+  color: $txtColor1;
+}

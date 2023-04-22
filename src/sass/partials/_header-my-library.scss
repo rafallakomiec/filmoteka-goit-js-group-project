@@ -1,6 +1,57 @@
-// ../../images/
-//     path to link static images relative to scss partial here
-// PLEASE USE BEM METHODOLOGY
-// delete these comments before pull request
-.my-library-header {
+.header__my-library-menu {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 280px;
+  margin: 60px auto 16px;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin: 40px auto 16px;
+    gap: 32px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+  }
+}
+
+.header__my-library-btn {
+  width: 130px;
+  height: 44px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid $txtColor1;
+  border-radius: 5px;
+  color: $txtColor1;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out, filter 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    width: 152px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 147px;
+    height: 42px;
+  }
+
+  &:active,
+  &--selected {
+    background-color: $txtColor4;
+    border: 1px solid $txtColor4;
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+  }
+
+  &:hover {
+    transform: scale(1.03);
+  }
 }

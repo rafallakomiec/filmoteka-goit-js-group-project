@@ -1,1 +1,0 @@
-import { fetchItems } from './fetchItems';
