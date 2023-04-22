@@ -1,5 +1,7 @@
 import { setQueued, setWatched } from './myLibraryHandlers';
 
+const qs = s => document.querySelector(s);
+
 const refs = {
   modal: qs('.movie-modal-backdrop'),
   modalContainer: qs('.modal__container'),
@@ -7,8 +9,6 @@ const refs = {
   modalQueueBtn: qs('.modal__btn--to-queue'),
   modalCloseBtn: qs('.modal__close-btn'),
 };
-
-const qs = s => document.querySelector(s);
 
 const toggleModal = () => {
   refs.modal.classList.toggle('is-hidden');
