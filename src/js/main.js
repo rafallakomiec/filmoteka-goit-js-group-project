@@ -17,7 +17,7 @@ const imgSize = 'w342';
 const galleryDOM = document.querySelector('.main-content__list');
 const searchForm = document.querySelector('.header__form');
 let query = '';
-const genresDecodeArray = [];
+let genresDecodeArray = [];
 
 const onSearchFormSubmit = async event => {
   event.preventDefault();
