@@ -75,16 +75,15 @@ export const renderModal = async (DOM, movieObject) => {
 
 export const renderMovies = async (DOM, perPage, imgSize, movieObjectsArray) => {
   for (let i = 0; i < perPage; i += 1) {
-    const { genre_ids, title, poster_path, vote_average, release_date, id } = movieObjectsArray[i];
-
-    const genresNames = await changeGenresIdToName(genre_ids);
+    const { genre_names, title, poster_path, vote_average, release_date, id } =
+      movieObjectsArray[i];
 
     const html = `
       <li class="movie-item" data-movieID="${id}">
         <img class="movie-item__poster" src="https://image.tmdb.org/t/p/${imgSize}/${poster_path}" />
         <div class="movie-item__details">
           <h2 class="movie-item__title">${title}</h2>
-          <span class="movie-item__genre">${genresNames.join(', ')}</span>
+          <span class="movie-item__genre">${genre_names.join(', ')}</span>
           <span class="movie-item__line">|</span>
           <span class="movie-item__year">${
             release_date ? release_date.slice(0, 4) : 'no release year'
