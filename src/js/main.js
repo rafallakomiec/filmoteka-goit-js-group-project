@@ -25,8 +25,11 @@ const onSearchFormSubmit = async event => {
 
   try {
     const movies = await fetchMoviesBySearchQuery(query, 1);
-    movies.results.genre_names = changeGenresIdToName(movies.results.genre_ids, genresDecodeArray);
-    await renderMovies(galleryDOM, perPage, imgSize, movies.results);
+    const readyMovies = movies.results.map(elem => {
+      elem.genre_names = changeGenresIdToName(elem.genre_ids, genresDecodeArray);
+      return elem;
+    });
+    await renderMovies(galleryDOM, perPage, imgSize, readyMovies);
   } catch (error) {
     console.log(error.message);
   }
@@ -49,8 +52,11 @@ const onWindowLoad = async () => {
     const genresAPIResponse = await fetchGenresList();
     genresDecodeArray = genresAPIResponse;
     const movies = await fetchTrendingMovies(1);
-    movies.results.genre_names = changeGenresIdToName(movies.results.genre_ids, genresDecodeArray);
-    await renderMovies(galleryDOM, perPage, imgSize, movies.results);
+    const readyMovies = movies.results.map(elem => {
+      elem.genre_names = changeGenresIdToName(elem.genre_ids, genresDecodeArray);
+      return elem;
+    });
+    await renderMovies(galleryDOM, perPage, imgSize, readyMovies);
 
     searchForm.addEventListener('submit', onSearchFormSubmit);
     galleryDOM.addEventListener('click', onMovieCardSelection);
