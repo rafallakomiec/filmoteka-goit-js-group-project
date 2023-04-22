@@ -1,4 +1,4 @@
-<div class="backdrop is-hidden">
+<div class="movie-modal-backdrop is-hidden">
   <div class="modal">
     <div class="modal__container">
       <button class="modal__close-btn">
@@ -7,7 +7,6 @@
         </svg>
       </button>
       <img
-        id="modal-poster"
         class="modal__poster"
         src="./images/phone/postersmall.png"
         srcset="
@@ -18,34 +17,30 @@
         sizes="(min-width: 1280px) 375px, (min-width: 768px) 264px, 240px"
       />
       <div class="modal__description">
-        <h2 id="modal-film-title" class="modal__title">Film title</h2>
+        <h2 class="modal__title">Film title</h2>
         <div class="modal__properties">
           <div class="modal__property">
             <p class="modal__column modal__property-title">Vote / Votes</p>
             <p class="modal__column modal__property-value">
-              <span id="modal-vote-average" class="modal__highlight">0</span> /
-              <!-- vote average -->
-              <span id="modal-votes-total" class="modal__highlight-alt">0</span>
-              <!-- total votes -->
+              <span class="modal__highlight">0</span> /
+              <span class="modal__highlight-alt">0</span>
             </p>
           </div>
           <div class="modal__property">
             <span class="modal__column modal__property-title">Popularity</span>
-            <span id="modal-popularity" class="modal__column modal__property-value">0</span>
+            <span class="modal__column modal__property-value">0</span>
           </div>
           <div class="modal__property">
             <span class="modal__column modal__property-title">Original Title</span>
-            <span id="modal-original-title" class="modal__column modal__property-value">
-              ORIGINAL TITLE
-            </span>
+            <span class="modal__column modal__property-value"> ORIGINAL TITLE </span>
           </div>
           <div class="modal__property">
             <span class="modal__column modal__property-title">Genre</span>
-            <span id="modal-genre" class="modal__column modal__property-value">GENRE</span>
+            <span class="modal__column modal__property-value">GENRE</span>
           </div>
           <div class="modal__about">
             <h3 class="modal__about-title">ABOUT</h3>
-            <span id="modal-about" class="modal__about-value">
+            <span class="modal__about-value">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati dolores eos iste
               distinctio? Neque consequuntur voluptatum quis facere perspiciatis hic quas quam,
               fugiat blanditiis nisi veniam ab possimus qui maxime tempora corporis odio deleniti
@@ -61,12 +56,8 @@
         </div>
       </div>
       <div class="modal__buttons">
-        <button id="modal-button-watched" class="modal__btn modal__btn--to-watched">
-          ADD TO WATCHED
-        </button>
-        <button id="modal-button-queue" class="modal__btn modal__btn--to-queue">
-          ADD TO QUEUE
-        </button>
+        <button class="modal__btn modal__btn--to-watched">ADD TO WATCHED</button>
+        <button class="modal__btn modal__btn--to-queue">ADD TO QUEUE</button>
       </div>
     </div>
   </div>

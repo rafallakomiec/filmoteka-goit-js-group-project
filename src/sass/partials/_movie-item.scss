@@ -41,7 +41,6 @@
   }
 
   &__poster {
-    background-image: url('../images/phone/postersmall.png');
     width: 280px;
     height: 398px;
     margin-bottom: 8px;
@@ -53,14 +52,12 @@
     max-height: 495px;
   }
   .movie-item__poster {
-    background-image: url('../images/tablet/postermedium.png');
     width: 336px;
     height: 445px;
   }
 }
 @media screen and (min-width: 1280px) {
   .movie-item__poster {
-    background-image: url('../images/desktop/posterbig.png');
     width: 394px;
     height: 574px;
     margin-bottom: 12px;
