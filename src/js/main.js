@@ -29,6 +29,7 @@ const onSearchFormSubmit = async event => {
       elem.genre_names = changeGenresIdToName(elem.genre_ids, genresDecodeArray);
       return elem;
     });
+    galleryDOM.innerHTML = '';
     await renderMovies(galleryDOM, perPage, imgSize, readyMovies);
   } catch (error) {
     console.log(error.message);
@@ -36,7 +37,7 @@ const onSearchFormSubmit = async event => {
 };
 
 const onMovieCardSelection = async event => {
-  if (e.currentTarget.nodeName !== 'LI') {
+  if (event.currentTarget.nodeName !== 'LI') {
     return;
   }
 
