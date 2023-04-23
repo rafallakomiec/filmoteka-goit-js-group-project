@@ -339,7 +339,7 @@
           margin-bottom: 15px;
         }
 
-        &-list {
+        .students-list {
           list-style: none;
           display: flex;
           flex-wrap: wrap;
@@ -370,7 +370,7 @@
           line-height: 20px;
           color: rgb(236, 18, 51);
 
-          &_role {
+          .students-name_role {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
               Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: bold;

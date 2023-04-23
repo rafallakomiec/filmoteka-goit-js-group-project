@@ -23,7 +23,7 @@ const searchForm = document.querySelector('.header__form');
 let query = '';
 let genresDecodeArray = [];
 const configNotiflix = {
-  position: `center-top`,
+  position: 'center-top',
 };
 
 const onSearchFormSubmit = async event => {
