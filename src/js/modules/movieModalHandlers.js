@@ -33,6 +33,14 @@ export const openMovieModal = async id => {
     refs.modalContainer.innerHTML = '';
   };
 
+  const onKeyStroke = function (event) {
+    if (event.key === 'Escape') {
+      document.removeEventListener('keyup', onKeyStroke);
+      closeMovieModal();
+    }
+  };
+
+  document.addEventListener('keyup', onKeyStroke);
   refs.modalCloseBtn.addEventListener('click', closeMovieModal);
   refs.modalQueueBtn.addEventListener('click', setQueuedCb);
   refs.modalWatchedBtn.addEventListener('click', setWatchedCb);
