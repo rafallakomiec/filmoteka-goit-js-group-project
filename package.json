@@ -28,6 +28,7 @@
     "fetch": "^1.1.0",
     "loading-spinner": "^1.2.1",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "tui-pagination": "^3.4.1"
   }
 }
