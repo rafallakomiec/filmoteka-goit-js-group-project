@@ -65,6 +65,8 @@
   }
 
   &__poster {
+    margin: 0;
+    padding: 0;
     width: 280px;
     height: 398px;
     margin-bottom: 8px;
@@ -73,7 +75,7 @@
 @media screen and (min-width: 768px) {
   .movie-item {
     max-width: 336px;
-    max-height: 495px;
+    min-height: 495px;
   }
   .movie-item__poster {
     width: 336px;
@@ -106,6 +108,6 @@
 
   .movie-item {
     max-width: 394px;
-    max-height: 634px;
+    min-height: 634px;
   }
 }

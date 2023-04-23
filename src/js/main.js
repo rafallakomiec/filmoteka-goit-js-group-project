@@ -59,7 +59,7 @@ const onSearchFormSubmit = async event => {
 const onMovieCardSelection = async event => {
   const targetLI = event.target.closest('li[data-movieid]');
 
-  const modalDOM = document.querySelector('modal__container');
+  const modalDOM = document.querySelector('.modal__container');
   const movieID = targetLI.dataset.movieid;
   const movieObject = await fetchMovieById(movieID);
 

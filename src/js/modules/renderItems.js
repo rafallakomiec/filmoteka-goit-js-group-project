@@ -67,14 +67,14 @@ export const renderModal = async (DOM, movieObject) => {
             </span>
           </div>          
         </div>
-      </div>
-      <div class="modal__buttons">
-        <button class="modal__btn modal__btn--to-watched">
-          ADD TO WATCHED
-        </button>
-        <button class="modal__btn modal__btn--to-queue">
-          ADD TO QUEUE
-        </button>
+        <div class="modal__buttons">
+          <button class="modal__btn modal__btn--to-watched">
+            ADD TO WATCHED
+          </button>
+          <button class="modal__btn modal__btn--to-queue">
+            ADD TO QUEUE
+          </button>
+        </div>
       </div>
 `;
   DOM.innerHTML = modalContent;
