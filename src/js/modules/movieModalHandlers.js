@@ -2,19 +2,19 @@ import { setQueued, setWatched } from './myLibraryHandlers';
 
 const qs = s => document.querySelector(s);
 
-const refs = {
-  modal: qs('.movie-modal-backdrop'),
-  modalContainer: qs('.modal__container'),
-  modalWatchedBtn: qs('.modal__btn--to-watched'),
-  modalQueueBtn: qs('.modal__btn--to-queue'),
-  modalCloseBtn: qs('.modal__close-btn'),
-};
-
-const toggleModal = () => {
-  refs.modal.classList.toggle('is-hidden');
-};
-
 export const openMovieModal = async id => {
+  const refs = {
+    modal: qs('.movie-modal-backdrop'),
+    modalContainer: qs('.modal__container'),
+    modalWatchedBtn: qs('.modal__btn--to-watched'),
+    modalQueueBtn: qs('.modal__btn--to-queue'),
+    modalCloseBtn: qs('.modal__close-btn'),
+  };
+
+  const toggleModal = () => {
+    refs.modal.classList.toggle('is-hidden');
+  };
+
   const setQueuedCb = function () {
     const localID = id;
     setQueued(localID);
