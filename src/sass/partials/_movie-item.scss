@@ -1,6 +1,30 @@
 .movie-item {
-  max-height: 440px;
+  min-height: 440px;
   max-width: 280px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    background-image: url('../images/phone/movie-placeholder-phone.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      background-image: url('../images/phone/movie-placeholder-phone@2x.jpg');
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    background-image: url('../images/tablet/movie-placeholder-tablet.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      background-image: url('../images/tablet/movie-placeholder-tablet@2x.jpg');
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url('../images/desktop/movie-placeholder-desktop.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      background-image: url('../images/desktop/movie-placeholder-desktop@2x.jpg');
+    }
+  }
 
   &__details {
     font-family: $basicFont, sans-serif;

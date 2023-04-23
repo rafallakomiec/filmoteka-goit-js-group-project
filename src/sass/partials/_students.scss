@@ -1,52 +1,65 @@
-
-.content{
+.students-title {
   position: relative;
   display: flex;
-          align-items: center;
-          height: 100px;
-          letter-spacing: 0.3em;
-          margin-bottom: 10px;
-        
+  align-items: center;
+  height: 100px;
+  letter-spacing: 0.3em;
+  margin-bottom: 10px;
 }
-.content h2{
- 
+.students-title h2 {
   position: absolute;
   color: #fff;
-  transform: translate(-10%,-10%);
+  transform: translate(-10%, -10%);
   font-size: 8em;
   margin-top: 2px;
   margin-bottom: -10px;
   margin-left: 75px;
   align-items: center;
-
-   
 }
-.content h2:nth-child(1){
+.students-title h2:nth-child(1) {
   color: transparent;
   -webkit-text-stroke: 2px #03a9f4;
 }
-.content h2:nth-child(2){
+.students-title h2:nth-child(2) {
   color: #03a9f4;
   animation: animate 4s ease-in-out infinite;
 }
 @keyframes animate {
-  0%,100%{
-    clip-path: polygon(0% 45%, 15% 44%, 32% 50%,
-      54% 60%, 70% 61%, 84% 59%, 100% 52%,
-      100% 100%, 0% 100%);
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      15% 44%,
+      32% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
   }
-  50%{
-    clip-path: polygon(0% 60%, 16% 65%, 34% 66%,
-      51% 62%, 67% 50%, 84% 45%, 100% 46%,
-      100% 100%, 0% 100%);
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      16% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
   }
 }
 .students-name_role {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-          font-weight: bold;
-          font-size: 12px;
-          color:rgb(24, 121, 13);
-          }
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  color: rgb(24, 121, 13);
+}
 #students-container {
   position: fixed;
   display: table;
@@ -60,7 +73,7 @@
     transform: scaleY(0.01) scaleX(0);
     animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     .students-background {
-      .students {
+      .students-card {
         transform: scale(0);
         animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
       }
@@ -69,7 +82,7 @@
       transform: scale(1);
       animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
       .students-background {
-        .students {
+        .students-card {
           animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
         }
       }
@@ -82,7 +95,7 @@
     text-align: center;
     vertical-align: middle;
 
-    .students {
+    .students-card {
       max-width: 300px;
       max-height: 95%;
       background: linear-gradient(rgb(183, 231, 181), rgb(102, 233, 122));
@@ -92,7 +105,8 @@
       border-radius: 3px;
       font-weight: 300;
       position: relative;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
 
       h2 {
         margin-top: 2px;
@@ -101,28 +115,27 @@
         justify-content: center;
         letter-spacing: 0.1em;
         height: 80px;
-        font-family: Roboto;
+        font-family: $basicFont;
         font-size: 30px;
         line-height: 25px;
         margin-bottom: 15px;
-      
       }
       &-picture {
-        border: 2px solid  rgb(157, 238, 148);
+        border: 2px solid rgb(157, 238, 148);
         border-radius: 25px;
         width: 70px;
         height: 70px;
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+          0px 2px 1px rgba(0, 0, 0, 0.2);
       }
 
       &-name {
-        font-family: roboto;
+        font-family: $basicFont;
         font-weight: bold;
         font-size: 12px;
         line-height: 12px;
-       color: rgb(236, 18, 51);;
+        color: rgb(236, 18, 51);
       }
-     
     }
   }
 }
@@ -170,24 +183,24 @@
 }
 
 @media screen and (min-width: 768px) {
+  .students-title h2 {
+    position: absolute;
+    color: #fff;
+    transform: translate(-10%, -10%);
+    font-size: 8em;
+    margin-top: 2px;
+    margin-bottom: -10px;
+    margin-left: 230px;
+    align-items: center;
+  }
 
-.content h2{
- 
-  position: absolute;
-  color: #fff;
-  transform: translate(-10%,-10%);
-  font-size: 8em;
-  margin-top: 2px;
-  margin-bottom: -10px;
-  margin-left: 230px;
-  align-items: center;}
-
-.students-name_role {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-          font-weight: bold;
-          font-size: 15px;
-          color:rgb(24, 121, 13);
-          }
+  .students-name_role {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(24, 121, 13);
+  }
 
   #students-container {
     .students-background {
@@ -196,7 +209,7 @@
       text-align: center;
       vertical-align: middle;
 
-      .students {
+      .students-card {
         max-width: 740px;
         background: linear-gradient(rgb(183, 231, 181), rgb(102, 233, 122));
         padding: 10px;
@@ -232,7 +245,7 @@
         }
 
         &-picture {
-          border: 2px solid  rgb(157, 238, 148);
+          border: 2px solid rgb(157, 238, 148);
           border-radius: 25px;
           width: 140px;
           height: 140px;
@@ -242,48 +255,61 @@
           margin-top: 5px;
           font-family: Roboto;
           font-weight: bold;
-          font-size:15px;
+          font-size: 15px;
           color: rgb(236, 18, 51);
         }
       }
     }
   }
 }
-@media screen and (min-width: 1024px) {
-
-.content h2{
- 
-  position: absolute;
-  color: #fff;
-  transform: translate(-10%,-10%);
-  font-size: 8em;
-  margin-top: 2px;
-  margin-bottom: -20px;
-  margin-left: 250px;
-  align-items: center;
-
-   
-}
-.content h2:nth-child(1){
-  color: transparent;
-  -webkit-text-stroke: 2px #03a9f4;
-}
-.content h2:nth-child(2){
-  color: #03a9f4;
-  animation: animate 4s ease-in-out infinite;
-}
-@keyframes animate {
-  0%,100%{
-    clip-path: polygon(0% 45%, 15% 44%, 32% 50%,
-      54% 60%, 70% 61%, 84% 59%, 100% 52%,
-      100% 100%, 0% 100%);
+@media screen and (min-width: 1280px) {
+  .students-title h2 {
+    position: absolute;
+    color: #fff;
+    transform: translate(-10%, -10%);
+    font-size: 8em;
+    margin-top: 2px;
+    margin-bottom: -20px;
+    margin-left: 250px;
+    align-items: center;
   }
-  50%{
-    clip-path: polygon(0% 60%, 16% 65%, 34% 66%,
-      51% 62%, 67% 50%, 84% 45%, 100% 46%,
-      100% 100%, 0% 100%);
+  .students-title h2:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 2px #03a9f4;
   }
-}
+  .students-title h2:nth-child(2) {
+    color: #03a9f4;
+    animation: animate 4s ease-in-out infinite;
+  }
+  @keyframes animate {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 45%,
+        15% 44%,
+        32% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+      );
+    }
+    50% {
+      clip-path: polygon(
+        0% 60%,
+        16% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
   #students-container {
     .students-background {
       display: table-cell;
@@ -291,7 +317,7 @@
       text-align: center;
       vertical-align: middle;
 
-      .students {
+      .students-card {
         max-width: 900px;
         background: linear-gradient(rgb(183, 231, 181), rgb(102, 233, 122));
         padding: 10px;
@@ -337,17 +363,19 @@
 
         &-name {
           margin-top: 5px;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+            Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
           font-weight: bold;
           font-size: 20px;
           line-height: 20px;
           color: rgb(236, 18, 51);
-        
+
           &_role {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-          font-weight: bold;
-          font-size: 20px;
-          color:rgb(24, 121, 13);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+              Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+            color: rgb(24, 121, 13);
           }
         }
       }
