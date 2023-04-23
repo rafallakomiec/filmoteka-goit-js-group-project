@@ -15,15 +15,15 @@ const toggleModal = () => {
 };
 
 export const openMovieModal = async id => {
-  const setQueuedCb = (() => {
+  const setQueuedCb = () => {
     const localID = id;
     setQueued(localID);
-  })();
+  };
 
-  const setWatchedCb = (() => {
+  const setWatchedCb = () => {
     const localID = id;
     setWatched(localID);
-  })();
+  };
 
   const closeMovieModal = () => {
     toggleModal();
