@@ -12,10 +12,12 @@ import { openMovieModal } from './modules/movieModalHandlers';
 import './modules/studentsModalHandlers';
 import { fetchGenresList, changeGenresIdToName } from './utils/changeGenresIdToName';
 import { Notify } from 'notiflix';
+import { generatePagination } from './modules/generatePagination';
 
-let perPage = 9;
+let perPage = 20;
 let sitePage = 1;
 let APIPage = 1;
+let totalResults = 0;
 const galleryDOM = document.querySelector('.main-content__list');
 const searchForm = document.querySelector('.header__form');
 let query = '';
@@ -89,6 +91,7 @@ const onWindowLoad = async () => {
         'Failed fetching today trending movies... Please reload the site to try again.'
       );
     }
+    totalResults = movies.total_results;
 
     const readyMovies = movies.results.map(elem => {
       elem.genre_names = changeGenresIdToName(elem.genre_ids, genresDecodeArray);
@@ -96,6 +99,26 @@ const onWindowLoad = async () => {
     });
 
     await renderMovies(galleryDOM, perPage, readyMovies);
+    const pagination = await generatePagination(totalResults, perPage);
+    pagination.on('afterMove', async event => {
+      const currentPage = event.page;
+      const movies = await fetchTrendingMovies(currentPage);
+      if (movies.results == null) {
+        throw new Error(
+          'Failed fetching today trending movies... Please reload the site to try again.'
+        );
+      }
+      const readyMovies = movies.results.map(elem => {
+        if (elem.genre_ids == undefined) {
+          return;
+        }
+        elem.genre_names = changeGenresIdToName(elem.genre_ids, genresDecodeArray);
+        console.log(elem);
+        return elem;
+      });
+  
+      await renderMovies(galleryDOM, perPage, readyMovies);
+    });
   } catch (error) {
     Notify.failure(error.message, configNotiflix);
   }

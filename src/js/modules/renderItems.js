@@ -84,9 +84,9 @@ export const renderMovies = async (DOM, perPage, movieObjectsArray) => {
   DOM.innerHTML = '';
 
   for (let i = 0; i < perPage; i += 1) {
-    const { genre_names, title, original_title, poster_path, vote_average, release_date, id } =
+    const { genre_names = [], title = '', original_title = '', poster_path = '', vote_average = 0, release_date = null, id = null} =
       movieObjectsArray[i];
-
+   
     const html = `
       <li class="movie-item" data-movieid="${id}">
         <img class="movie-item__poster" 
