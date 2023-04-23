@@ -15,17 +15,17 @@ const toggleModal = () => {
 };
 
 export const openMovieModal = async id => {
-  const setQueuedCb = () => {
+  const setQueuedCb = function () {
     const localID = id;
     setQueued(localID);
   };
 
-  const setWatchedCb = () => {
+  const setWatchedCb = function () {
     const localID = id;
     setWatched(localID);
   };
 
-  const closeMovieModal = () => {
+  const closeMovieModal = function () {
     toggleModal();
     refs.modalCloseBtn.removeEventListener('click', this);
     refs.modalQueueBtn.removeEventListener('click', setQueuedCb);
