@@ -4,6 +4,8 @@ import { Notify } from 'notiflix';
 const API_KEY = 'api_key=1c8f6b064eb2a1f6bd306bc5a0f759ec';
 const API_URL = 'https://api.themoviedb.org/3/';
 const API_LANGUAGE = 'language=en-US';
+const GENRE_MOVIE_LIST_URL = '/genre/movie/list';
+const GENRE_TV_LIST_URL = '/genre/tv/list';
 
 export const fetchTrendingMovies = async (page = 1) => {
   try {
@@ -33,7 +35,7 @@ export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
       return data; // => {page, results, total_pages, total_results}
     } else {
       Notify.failure(`${searchQuery} doesn't exist. Try searching otherwise...`, {
-        position: `center-top`,
+        position: "center-top",
       });
       return null;
     }
@@ -56,3 +58,25 @@ export const fetchMovieById = async movieId => {
     return error;
   }
 };
+
+export const fetchAllGenresList = async () => {
+  const responseGenresMovie = await fetch(
+    `${API_URL}${GENRE_MOVIE_LIST_URL}${API_KEY}&language=en-US`,
+  );
+
+  const responseGenresTV = await fetch(
+    `${BASE_URL}${GENRE_TV_LIST_URL}${API_KEY}&language=en-US`,
+  );
+
+  const genresMovieList = await responseGenresMovie.json();
+  const genresTVList = await responseGenresTV.json();
+
+  const allGenresList = [
+    ...new Map(
+      [...genresMovieList.genres, ...genresTVList.genres].map(genre => [genre['id'], genre]),
+    ).values(),
+  ];
+  allGenresListMain = allGenresList;
+  return allGenresList;
+};
+
