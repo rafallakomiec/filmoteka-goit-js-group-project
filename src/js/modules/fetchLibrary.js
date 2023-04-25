@@ -27,7 +27,7 @@ export const getLibraryMovies = async libraryList => {
         );
       }
 
-      movies.push(movie);
+      movies.push(responseMovie);
     }
 
     return movies;
