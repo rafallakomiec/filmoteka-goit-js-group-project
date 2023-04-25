@@ -5,8 +5,8 @@
 }
 
 .movie-modal-backdrop {
-  position: fixed;
-  z-index: 1;
+  position: absolute;
+  z-index: 10;
   display: flex;
   left: 0;
   top: 0;
