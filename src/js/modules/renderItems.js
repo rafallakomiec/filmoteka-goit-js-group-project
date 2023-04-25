@@ -1,18 +1,22 @@
 export const renderModal = async (DOM, movieObject) => {
   const {
-    title,
-    genres,
-    vote_count,
-    poster_path,
-    vote_average,
-    popularity,
-    original_title,
-    overview,
+    genre_names = [],
+    title = '',
+    original_title = '',
+    name = '',
+    original_name = '',
+    poster_path = '',
+    vote_average = 0,
+    vote_count = 0,
+    popularity = 0,
+    overview = '',
   } = movieObject;
+
   const genresNames =
-    genres.length && Array.isArray(genres)
-      ? genres.map(item => item.name).join(', ')
+    genre_names.length && Array.isArray(genre_names)
+      ? genre_names.join(', ')
       : 'No genres available';
+
   const modalContent = `
       <button class="modal__close-btn">
       <svg class="modal__close-btn-icon">
@@ -33,7 +37,7 @@ export const renderModal = async (DOM, movieObject) => {
         sizes="(min-width: 1280px) 375px, (min-width: 768px) 264px, 240px"
       />
       <div class="modal__description">
-        <h2 class="modal__title">${title ? title : 'No common title'}</h2>
+        <h2 class="modal__title">${title ? title : name ? name : 'No common title'}</h2>
         <div class="modal__properties">
           <div class="modal__property">
             <p class="modal__column modal__property-title">Vote / Votes</p>
@@ -53,7 +57,11 @@ export const renderModal = async (DOM, movieObject) => {
           <div class="modal__property">
             <span class="modal__column modal__property-title">Original Title</span>
             <span class="modal__column modal__property-value">${
-              original_title ? original_title.toUpperCase() : 'No original title'
+              original_title
+                ? original_title.toUpperCase()
+                : original_name
+                ? original_name.toUpperCase()
+                : 'No original title'
             }</span>
           </div>
           <div class="modal__property">
@@ -74,19 +82,33 @@ export const renderModal = async (DOM, movieObject) => {
           <button class="modal__btn modal__btn--to-queue">
             ADD TO QUEUE
           </button>
+          <button class="modal__btn modal__btn--clear">
+            REMOVE FROM MY LIBRARY
+          </button>
         </div>
       </div>
 `;
+
   DOM.innerHTML = modalContent;
 };
 
-export const renderMovies = async (DOM, perPage, movieObjectsArray) => {
+export const renderMovies = (DOM, perPage, movieObjectsArray) => {
   DOM.innerHTML = '';
 
   for (let i = 0; i < perPage; i += 1) {
-    const { genre_names = [], title = '', original_title = '', poster_path = '', vote_average = 0, release_date = null, id = null} =
-      movieObjectsArray[i];
-   
+    const {
+      genre_names = [],
+      title = '',
+      original_title = '',
+      name = '',
+      original_name = '',
+      poster_path = '',
+      vote_average = 0,
+      release_date = null,
+      first_air_date = null,
+      id = '',
+    } = movieObjectsArray[i];
+
     const html = `
       <li class="movie-item" data-movieid="${id}">
         <img class="movie-item__poster" 
@@ -103,7 +125,15 @@ export const renderMovies = async (DOM, perPage, movieObjectsArray) => {
         />
         <div class="movie-item__details">
           <h2 class="movie-item__title">${
-            title ? title : original_title ? original_title : 'No title available'
+            title
+              ? title
+              : original_title
+              ? original_title
+              : name
+              ? name
+              : original_name
+              ? original_name
+              : 'No title available'
           }</h2>
           <span class="movie-item__genre">${
             genre_names.length && Array.isArray(genre_names)
@@ -112,7 +142,11 @@ export const renderMovies = async (DOM, perPage, movieObjectsArray) => {
           }</span>
           <span class="movie-item__line">|</span>
           <span class="movie-item__year">${
-            release_date ? release_date.slice(0, 4) : 'No release year available'
+            release_date
+              ? release_date.slice(0, 4)
+              : first_air_date
+              ? first_air_date.slice(0, 4)
+              : 'No release year available'
           }</span>
           <span class="movie-item__rating">${
             vote_average.toFixed(1) > 0 ? vote_average.toFixed(1) : 0

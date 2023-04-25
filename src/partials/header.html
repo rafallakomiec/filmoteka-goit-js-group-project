@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header__container header__container--home">
     <div class="header__menu">
-      <a href="#" class="logo">
+      <a href="./index.html" class="logo">
         <svg class="logo__icon">
           <use href="./images/icons.svg#icon-film"></use>
         </svg>
@@ -10,16 +10,18 @@
       <nav class="header__nav">
         <ul class="header__nav-list">
           <li>
-            <a href="#" class="header__nav-link header__nav-link--underline"> HOME </a>
+            <a href="#" class="header__nav-link header__nav-link--underline" id="home"> HOME </a>
           </li>
           <li>
-            <a href="#" class="header__nav-link"> MY LIBRARY </a>
+            <a href="#" class="header__nav-link" id="my-library"> MY LIBRARY </a>
           </li>
         </ul>
       </nav>
     </div>
-    <include src="./partials/header-home.html"></include>
-    <include src="./partials/header-my-library.html"></include>
+    <div class="header__slider-box">
+      <include src="./partials/header-home.html"></include>
+      <include src="./partials/header-my-library.html"></include>
+    </div>
     <include src="./partials/header-tools.html"></include>
   </div>
 </header>

@@ -17,6 +17,8 @@
   background-position: center;
   background-size: 100% 100%;
   opacity: 0.9;
+  overflow: hidden;
+  transition: filter 250ms ease-in-out;
 
   @media screen and (max-width: 767px) {
     max-width: 320px;
@@ -170,4 +172,13 @@
     height: 3px;
     background-color: $txtColor6;
   }
+}
+
+.header__slider-box {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
 }

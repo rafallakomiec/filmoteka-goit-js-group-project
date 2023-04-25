@@ -1,4 +1,4 @@
-import { setQueued, setWatched } from './myLibraryHandlers';
+import { setQueued, setWatched, clearItem, watched, queued } from './myLibraryHandlers';
 
 const qs = s => document.querySelector(s);
 
@@ -8,6 +8,7 @@ export const openMovieModal = async id => {
     modalContainer: qs('.modal__container'),
     modalWatchedBtn: qs('.modal__btn--to-watched'),
     modalQueueBtn: qs('.modal__btn--to-queue'),
+    modalClearBtn: qs('.modal__btn--clear'),
     modalCloseBtn: qs('.modal__close-btn'),
   };
 
@@ -15,35 +16,67 @@ export const openMovieModal = async id => {
     refs.modal.classList.toggle('is-hidden');
   };
 
-  const setQueuedCb = function () {
+  const setQueuedCb = async () => {
     const localID = id;
-    setQueued(localID);
+    await setQueued(localID);
+    refs.modalWatchedBtn.classList.remove('movie-modal__elem--hidden');
+    refs.modalQueueBtn.classList.add('movie-modal__elem--hidden');
+    refs.modalClearBtn.classList.remove('movie-modal__elem--hidden');
   };
 
-  const setWatchedCb = function () {
+  const setWatchedCb = async () => {
     const localID = id;
-    setWatched(localID);
+    await setWatched(localID);
+    refs.modalWatchedBtn.classList.add('movie-modal__elem--hidden');
+    refs.modalQueueBtn.classList.remove('movie-modal__elem--hidden');
+    refs.modalClearBtn.classList.remove('movie-modal__elem--hidden');
   };
 
-  const closeMovieModal = function () {
+  const clearItemCb = async () => {
+    const localID = id;
+    await clearItem(localID);
+    refs.modalWatchedBtn.classList.remove('movie-modal__elem--hidden');
+    refs.modalQueueBtn.classList.remove('movie-modal__elem--hidden');
+    refs.modalClearBtn.classList.add('movie-modal__elem--hidden');
+  };
+
+  const closeMovieModal = () => {
     toggleModal();
+    document.removeEventListener('keyup', onKeyStroke);
+    refs.modal.removeEventListener('click', onModalBackdropClick);
     refs.modalCloseBtn.removeEventListener('click', this);
     refs.modalQueueBtn.removeEventListener('click', setQueuedCb);
     refs.modalWatchedBtn.removeEventListener('click', setWatchedCb);
+    refs.modalClearBtn.removeEventListener('click', clearItemCb);
     refs.modalContainer.innerHTML = '';
   };
 
-  const onKeyStroke = function (event) {
+  const onKeyStroke = event => {
     if (event.key === 'Escape') {
-      document.removeEventListener('keyup', onKeyStroke);
       closeMovieModal();
     }
   };
 
+  const onModalBackdropClick = event => {
+    if (event.target.classList.contains('movie-modal-backdrop')) {
+      closeMovieModal();
+    }
+  };
+
+  if (watched.includes(id)) {
+    refs.modalWatchedBtn.classList.add('movie-modal__elem--hidden');
+  } else if (queued.includes(id)) {
+    refs.modalQueueBtn.classList.add('movie-modal__elem--hidden');
+  } else {
+    refs.modalClearBtn.classList.add('movie-modal__elem--hidden');
+  }
+
   document.addEventListener('keyup', onKeyStroke);
+  refs.modal.addEventListener('click', onModalBackdropClick);
   refs.modalCloseBtn.addEventListener('click', closeMovieModal);
   refs.modalQueueBtn.addEventListener('click', setQueuedCb);
   refs.modalWatchedBtn.addEventListener('click', setWatchedCb);
+  refs.modalClearBtn.addEventListener('click', clearItemCb);
   toggleModal();
   return closeMovieModal;
 };
