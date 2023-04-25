@@ -121,13 +121,13 @@
     background-position: -13px -12px;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 767px) {
     .tui-pagination {
         margin-top: 40px;
     }
 
-    .tui-pagination .tui-prev,
-    .tui-pagination .tui-next,
+    .tui-pagination .tui-first,
+    .tui-pagination .tui-last,
     .tui-pagination .tui-prev-is-ellip,
     .tui-pagination .tui-next-is-ellip {
         display: none;
