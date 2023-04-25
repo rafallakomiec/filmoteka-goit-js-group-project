@@ -18,11 +18,6 @@ export const renderModal = async (DOM, movieObject) => {
       : 'No genres available';
 
   const modalContent = `
-      <button class="modal__close-btn">
-      <svg class="modal__close-btn-icon">
-        <use href="./images/icons.svg#icon-close-btn"></use>
-      </svg>
-      </button>
       <img
         class="modal__poster"
         src="https://image.tmdb.org/t/p/original/${poster_path}"
