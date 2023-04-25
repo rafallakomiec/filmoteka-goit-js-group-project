@@ -31,7 +31,7 @@ let totalResults = 0;
 const galleryDOM = document.querySelector('.main-content__list');
 const headerCont = document.querySelector('.header__container');
 const searchForm = document.querySelector('.header__form');
-const myLibraryMenu = document.querySelector('header__my-library-menu');
+const myLibraryMenu = document.querySelector('.header__my-library-menu');
 let query = '';
 let pagination;
 const paginationDOM = document.querySelector('#pagination');
@@ -52,12 +52,8 @@ const loadHome = async event => {
     headerCont.classList.remove('header__container--my-library');
     headerCont.classList.add('header__container--home');
     headerCont.style.filter = 'none';
-    searchForm.style.left = '0';
-    searchForm.style.opacity = '0';
-    searchForm.style.transform = 'translateX(-100%)';
-    myLibraryMenu.style.left = '50%';
-    myLibraryMenu.style.opacity = '1';
-    myLibraryMenu.style.transform = 'translateX(-50%)';
+    searchForm.classList.remove('header__form--hidden');
+    myLibraryMenu.classList.add('header__my-library-menu--hidden');
   }, 250);
 
   galleryDOM.innerHTML = '';
@@ -73,15 +69,11 @@ const loadMyLibrary = async event => {
 
   headerCont.style.filter = 'blur(3px)';
   setTimeout(() => {
-    headerCont.classList.remove('header__container--my-library');
-    headerCont.classList.add('header__container--home');
+    headerCont.classList.remove('header__container--home');
+    headerCont.classList.add('header__container--my-library');
     headerCont.style.filter = 'none';
-    searchForm.style.left = '50%';
-    searchForm.style.opacity = '1';
-    searchForm.style.transform = 'translateX(-50%)';
-    myLibraryMenu.style.left = '100%';
-    myLibraryMenu.style.opacity = '0';
-    myLibraryMenu.style.transform = 'translateX(0)';
+    myLibraryMenu.classList.remove('header__my-library-menu--hidden');
+    searchForm.classList.add('header__form--hidden');
   }, 250);
 
   galleryDOM.innerHTML = '';

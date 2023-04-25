@@ -24,15 +24,15 @@ export const fetchTrendingMovies = async (page = 1) => {
 
 export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
   try {
-    const data = await axios.get(
+    const response = await axios.get(
       `${API_URL}search/movie?${API_KEY}&${API_LANGUAGE}&page=${page}&query=${searchQuery}`
     );
 
-    if (data.status !== 200) {
+    if (response.status !== 200) {
       throw new Error('Please try again... Failed communication with server.');
     }
-    if (data.results.length > 0) {
-      return data; // => {page, results, total_pages, total_results}
+    if (response.data.results.length > 0) {
+      return response.data; // => {page, results, total_pages, total_results}
     } else {
       Notify.failure(`${searchQuery} doesn't exist. Try searching otherwise...`, {
         position: 'center-top',

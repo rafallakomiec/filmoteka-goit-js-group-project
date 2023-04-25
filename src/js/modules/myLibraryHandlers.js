@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix';
 import { load, save, clear } from '../utils/localStorageHandlers';
 import { getLibraryMovies } from './fetchLibrary';
-import { generatePagination } from './modules/generatePagination';
+import { generatePagination } from './generatePagination';
 import { afterPaginationMove } from '../main';
 
 const configNotiflix = {
@@ -14,22 +14,33 @@ export let myLibraryPageName = '';
 export const watchedMoviesKey = 'watchedMovies';
 export const queuedMoviesKey = 'queuedMovies';
 
-export let watched = load(watchedMoviesKey, watched) || [];
-export let queued = load(queuedMoviesKey, queued) || [];
+export let watched = load(watchedMoviesKey) || [];
+export let queued = load(queuedMoviesKey) || [];
 
 const saveWatched = () => save(watchedMoviesKey, watched);
 const saveQueued = () => save(queuedMoviesKey, queued);
 
-export const setWatched = id => {
+export const setWatched = async id => {
   watched = load(watchedMoviesKey) || [];
+  queued = load(queuedMoviesKey) || [];
 
   if (watched.includes(id)) {
     Notify.warning('This movie is already in your watched list!', configNotiflix);
     return;
   }
+
   watched.push(id);
+
+  if (queued.includes(id)) {
+    let index = queued.indexOf(id);
+    if (index >= 0) {
+      queued.splice(index, 1);
+    }
+  }
+
   try {
-    saveWatched();
+    await saveWatched();
+    await saveQueued();
     Notify.success('The movie has been added to your watched list!', configNotiflix);
   } catch (error) {
     console.error(error.message);
@@ -37,16 +48,27 @@ export const setWatched = id => {
   }
 };
 
-export const setQueued = id => {
+export const setQueued = async id => {
+  watched = load(watchedMoviesKey) || [];
   queued = load(queuedMoviesKey) || [];
 
   if (queued.includes(id)) {
     Notify.warning('This movie is already in your queue!', configNotiflix);
     return;
   }
+
   queued.push(id);
+
+  if (watched.includes(id)) {
+    let index = watched.indexOf(id);
+    if (index >= 0) {
+      watched.splice(index, 1);
+    }
+  }
+
   try {
-    saveQueued();
+    await saveQueued();
+    await saveWatched();
     Notify.success('The movie has been added to your queue!', configNotiflix);
   } catch (error) {
     console.error(error.message);
@@ -54,7 +76,7 @@ export const setQueued = id => {
   }
 };
 
-export const clearItem = id => {
+export const clearItem = async id => {
   watched = load(watchedMoviesKey) || [];
   queued = load(queuedMoviesKey) || [];
   let index;
@@ -66,20 +88,22 @@ export const clearItem = id => {
     }
 
     try {
-      saveQueued();
+      await saveQueued();
       Notify.success('The movie has been removed from your queue!', configNotiflix);
     } catch (error) {
       console.error(error.message);
       Notify.failure('Oops! Something went wrong. Please try again...', configNotiflix);
     }
-  } else if (watched.includes(id)) {
+  }
+  
+  if (watched.includes(id)) {
     index = watched.indexOf(id);
     if (index >= 0) {
       watched.splice(index, 1);
     }
 
     try {
-      saveWatched();
+      await saveWatched();
       Notify.success('The movie has been removed from your watched list!', configNotiflix);
     } catch (error) {
       console.error(error.message);
