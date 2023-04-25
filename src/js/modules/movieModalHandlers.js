@@ -1,4 +1,5 @@
 import { setQueued, setWatched, clearItem, watched, queued } from './myLibraryHandlers';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const qs = s => document.querySelector(s);
 
@@ -42,6 +43,7 @@ export const openMovieModal = async id => {
 
   const closeMovieModal = () => {
     toggleModal();
+    enableBodyScroll(refs.modal);
     document.removeEventListener('keyup', onKeyStroke);
     refs.modal.removeEventListener('click', onModalBackdropClick);
     refs.modalCloseBtn.removeEventListener('click', this);
@@ -71,6 +73,7 @@ export const openMovieModal = async id => {
     refs.modalClearBtn.classList.add('movie-modal__elem--hidden');
   }
 
+  disableBodyScroll(refs.modal);
   document.addEventListener('keyup', onKeyStroke);
   refs.modal.addEventListener('click', onModalBackdropClick);
   refs.modalCloseBtn.addEventListener('click', closeMovieModal);
