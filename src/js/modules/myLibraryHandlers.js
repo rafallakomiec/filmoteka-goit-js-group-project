@@ -95,7 +95,7 @@ export const clearItem = async id => {
       Notify.failure('Oops! Something went wrong. Please try again...', configNotiflix);
     }
   }
-  
+
   if (watched.includes(id)) {
     index = watched.indexOf(id);
     if (index >= 0) {
