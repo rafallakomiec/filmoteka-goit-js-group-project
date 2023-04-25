@@ -2,7 +2,7 @@ import { Notify } from 'notiflix';
 import { load, save } from '../utils/localStorageHandlers';
 
 const configNotiflix = {
-  position: `center-top`,
+  position: "center-top",
 };
 
 const watchedMoviesKey = 'watchedMovies';
