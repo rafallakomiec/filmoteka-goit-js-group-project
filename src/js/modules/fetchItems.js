@@ -35,7 +35,7 @@ export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
       return data; // => {page, results, total_pages, total_results}
     } else {
       Notify.failure(`${searchQuery} doesn't exist. Try searching otherwise...`, {
-        position: "center-top",
+        position: 'center-top',
       });
       return null;
     }
@@ -49,34 +49,45 @@ export const fetchMoviesBySearchQuery = async (searchQuery, page = 1) => {
 export const fetchMovieById = async movieId => {
   try {
     const response = await axios.get(`${API_URL}movie/${movieId}?${API_KEY}&${API_LANGUAGE}`);
-    if (response.status !== 200 || response.data == null) {
+    if (
+      response.status !== 200 ||
+      response.data == null ||
+      response.data.first_air_date ||
+      response.data.name ||
+      response.data.original_name
+    ) {
       throw new Error('Failed fetching movie data... Please try again.');
     }
     return response.data;
   } catch (error) {
-    console.error(error.message);
-    return error;
+    try {
+      const response = await axios.get(`${API_URL}tv/${movieId}?${API_KEY}&${API_LANGUAGE}`);
+      if (response.status !== 200 || response.data == null) {
+        throw new Error('Failed fetching movie data... Please try again.');
+      }
+      return response.data;
+    } catch (error) {
+      console.error(error.message);
+      return error;
+    }
   }
 };
 
 export const fetchAllGenresList = async () => {
   const responseGenresMovie = await fetch(
-    `${API_URL}${GENRE_MOVIE_LIST_URL}${API_KEY}&language=en-US`,
+    `${API_URL}${GENRE_MOVIE_LIST_URL}${API_KEY}&language=en-US`
   );
 
-  const responseGenresTV = await fetch(
-    `${BASE_URL}${GENRE_TV_LIST_URL}${API_KEY}&language=en-US`,
-  );
+  const responseGenresTV = await fetch(`${BASE_URL}${GENRE_TV_LIST_URL}${API_KEY}&language=en-US`);
 
   const genresMovieList = await responseGenresMovie.json();
   const genresTVList = await responseGenresTV.json();
 
   const allGenresList = [
     ...new Map(
-      [...genresMovieList.genres, ...genresTVList.genres].map(genre => [genre['id'], genre]),
+      [...genresMovieList.genres, ...genresTVList.genres].map(genre => [genre['id'], genre])
     ).values(),
   ];
   allGenresListMain = allGenresList;
   return allGenresList;
 };
-

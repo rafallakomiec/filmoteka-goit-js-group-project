@@ -1,11 +1,16 @@
 .header__my-library-menu {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
   width: 280px;
   margin: 60px auto 16px;
   gap: 20px;
+  transform-origin: center;
+  left: 100%;
+  opacity: 0;
+  transform: translateX(0);
+  transition: left 250ms ease-in-out, opacity 250ms ease-in-out, transform 250ms ease-in-out;
 
   @media screen and (min-width: 768px) {
     margin: 40px auto 16px;

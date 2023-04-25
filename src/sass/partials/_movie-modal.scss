@@ -197,6 +197,7 @@
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
+    transition: transform 0.5s ease-in-out;
 
     @media screen and (min-width: 768px) {
       max-width: 125px;
@@ -208,11 +209,16 @@
       min-width: 136px;
     }
 
-    &--to-queue {
+    &--to-queue,
+    &--clear {
       color: $txtColor2;
       border: solid 2px $txtColor2;
       background-color: transparent;
       font-weight: 700;
+    }
+
+    &.movie-modal__elem--hidden {
+      transform: scale(0);
     }
   }
 }

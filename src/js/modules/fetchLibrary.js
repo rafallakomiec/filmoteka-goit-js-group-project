@@ -1,29 +1,35 @@
-import { fetchMovieById } from "./fetchItems";
-import { openMovieModal } from "./movieModalHandlers";
-import { renderModal } from "./renderItems";
+import { fetchMovieById } from './fetchItems';
+import { Notify } from 'notiflix';
 
-const galleryOfMovies = document.querySelector(".main-content__list");
+export const getLibraryMovies = async libraryList => {
+  const movies = [];
 
-export const getAllLibraryMovies = async (libraryList, listType) => {
-    let moviesList = [];
-    alleryOfMovies.innerHTML = '';
-    listType === 'watchedList'
-    ? galleryOfMovies.setAttribute('data-listtype', 'watched')
-    : galleryOfMovies.setAttribute('data-listtype', 'queue');
-    const tempObj = [];
-    
-    if (libraryList !== undefined) {
-        for (const movie of libraryList) {
-        let response = await fetchMovieById(movie.movieId, movie.type).then(res => res);
-        response = {
-            ...response,
-            genre_ids: [...response.genres.map(genre => genre.id)],
-            media_type: movie.type,
-        };
-            tempObj.push(response);
-        }
-        moviesList = [...tempObj];
-        await renderModal(galleryOfMovies, moviesList);
-        openMovieModal();
+  if (libraryList !== undefined) {
+    for (const movie of libraryList) {
+      const responseMovie = await fetchMovieById(movie);
+
+      if (responseMovie instanceof Error) {
+        Notify.failure(responseMovie.message, configNotiflix);
+        return;
+      }
+
+      if (
+        responseMovie.genres !== undefined ||
+        Array.isArray(responseMovie.genres) ||
+        responseMovie.genre_ids == undefined ||
+        !Array.isArray(responseMovie.genre_ids)
+      ) {
+        responseMovie.genre_names = responseMovie.genres.map(genre => genre.name);
+      } else {
+        responseMovie.genre_names = changeGenresIdToName(
+          responseMovie.genre_ids,
+          genresDecodeArray
+        );
+      }
+
+      movies.push(movie);
     }
+
+    return movies;
+  }
 };

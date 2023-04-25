@@ -2,10 +2,7 @@
   width: 100%;
   margin: 0 auto;
   background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: block;
 
   &__container {
     max-width: 320px;
@@ -27,13 +24,14 @@
   }
 
   &__list {
-    width: 100%;
+    min-width: 100%;
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    justify-items: center;
     gap: 21px 0;
     flex-basis: 280px;
 
