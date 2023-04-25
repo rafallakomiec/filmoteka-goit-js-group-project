@@ -2,6 +2,7 @@ import { Notify } from 'notiflix';
 import { load, save, clear } from '../utils/localStorageHandlers';
 import { getLibraryMovies } from './fetchLibrary';
 import { generatePagination } from './generatePagination';
+import { renderMovies } from './renderItems';
 import { afterPaginationMove } from '../main';
 
 const configNotiflix = {
