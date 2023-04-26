@@ -7,14 +7,5 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-}
-
-body.light-theme {
-  background-color: $txtColor1;
-  color: $txtColor2;
-}
-
-body.dark-theme {
-  background-color: $bgColor1;
-  color: $txtColor1;
+  
 }
