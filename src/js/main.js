@@ -5,7 +5,7 @@ import {
   fetchTrendingMovies,
   fetchMoviesBySearchQuery,
   fetchMovieById,
-} from './modules/fetchItems';
+} from './modules/fetch-items';
 import { renderMovies, renderModal } from './modules/renderItems';
 import {
   watched,
@@ -15,13 +15,13 @@ import {
   myLibraryPageName,
   watchedMoviesKey,
   queuedMoviesKey,
-} from './modules/myLibraryHandlers';
-import { getLibraryMovies } from './modules/fetchLibrary';
-import { openMovieModal } from './modules/movieModalHandlers';
+} from './modules/library-handlers';
+import { getLibraryMovies } from './modules/get-library';
+import { openMovieModal } from './modules/modal-handlers';
 import './modules/studentsModalHandlers';
-import { fetchGenresList, changeGenresIdToName } from './utils/changeGenresIdToName';
+import { fetchGenresList, changeGenresIdToName } from './utils/genres-to-id';
 import { Notify } from 'notiflix';
-import { generatePagination } from './modules/generatePagination';
+import { generatePagination } from './modules/pagination';
 
 let pageName = 'trending';
 let perPage = 20;
@@ -41,6 +41,8 @@ let genresDecodeArray = [];
 const configNotiflix = {
   position: 'center-top',
 };
+
+
 
 const loadHome = async event => {
   event.preventDefault();

@@ -1,4 +1,4 @@
-import { setQueued, setWatched, clearItem, watched, queued } from './myLibraryHandlers';
+import { setQueued, setWatched, clearItem, watched, queued } from './library-handlers';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const qs = s => document.querySelector(s);
