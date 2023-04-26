@@ -62,6 +62,8 @@ const loadHome = async event => {
   for (const elem of paginationDOM.querySelectorAll('*')) {
     elem.remove();
   }
+  pageName = 'trending';
+  onWindowLoad();
 };
 
 const loadMyLibrary = async event => {
