@@ -6,7 +6,7 @@ import {
   fetchMoviesBySearchQuery,
   fetchMovieById,
 } from './modules/fetch-items';
-import { renderMovies, renderModal } from './modules/renderItems';
+import { renderMovies, renderModal } from './modules/render-items';
 import {
   watched,
   queued,
@@ -18,7 +18,7 @@ import {
 } from './modules/library-handlers';
 import { getLibraryMovies } from './modules/get-library';
 import { openMovieModal } from './modules/modal-handlers';
-import './modules/studentsModalHandlers';
+import './modules/students-modal-handlers';
 import { fetchGenresList, changeGenresIdToName } from './utils/genres-to-id';
 import { Notify } from 'notiflix';
 import { generatePagination } from './modules/pagination';
