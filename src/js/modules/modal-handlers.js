@@ -46,7 +46,7 @@ export const openMovieModal = async id => {
     enableBodyScroll(refs.modal);
     document.removeEventListener('keyup', onKeyStroke);
     refs.modal.removeEventListener('click', onModalBackdropClick);
-    refs.modalCloseBtn.removeEventListener('click', this);
+    refs.modalCloseBtn.removeEventListener('click', closeMovieModal);
     refs.modalQueueBtn.removeEventListener('click', setQueuedCb);
     refs.modalWatchedBtn.removeEventListener('click', setWatchedCb);
     refs.modalClearBtn.removeEventListener('click', clearItemCb);
