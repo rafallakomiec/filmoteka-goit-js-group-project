@@ -1,8 +1,8 @@
 import { Notify } from 'notiflix';
-import { load, save, clear } from '../utils/localStorageHandlers';
-import { getLibraryMovies } from './fetchLibrary';
-import { generatePagination } from './generatePagination';
-import { renderMovies } from './renderItems';
+import { load, save, clear } from '../utils/storage';
+import { getLibraryMovies } from './get-library';
+import { generatePagination } from './pagination';
+import { renderMovies } from './render-items';
 import { afterPaginationMove } from '../main';
 
 const configNotiflix = {

@@ -1,4 +1,4 @@
-import { save, load } from "../storage/storage.js";
+import { save } from "./storage";
 
 document.addEventListener('DOMContentLoaded', function() {
 

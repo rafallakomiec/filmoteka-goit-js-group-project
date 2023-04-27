@@ -5,8 +5,8 @@ import {
   fetchTrendingMovies,
   fetchMoviesBySearchQuery,
   fetchMovieById,
-} from './modules/fetchItems';
-import { renderMovies, renderModal } from './modules/renderItems';
+} from './modules/fetch-items';
+import { renderMovies, renderModal } from './modules/render-items';
 import {
   watched,
   queued,
@@ -15,13 +15,13 @@ import {
   myLibraryPageName,
   watchedMoviesKey,
   queuedMoviesKey,
-} from './modules/myLibraryHandlers';
-import { getLibraryMovies } from './modules/fetchLibrary';
-import { openMovieModal } from './modules/movieModalHandlers';
-import './modules/studentsModalHandlers';
-import { fetchGenresList, changeGenresIdToName } from './utils/changeGenresIdToName';
+} from './modules/library-handlers';
+import { getLibraryMovies } from './modules/get-library';
+import { openMovieModal } from './modules/modal-handlers';
+import './modules/students-modal-handlers';
+import { fetchGenresList, changeGenresIdToName } from './utils/genres-to-id';
 import { Notify } from 'notiflix';
-import { generatePagination } from './modules/generatePagination';
+import { generatePagination } from './modules/pagination';
 
 let pageName = 'trending';
 let perPage = 20;
@@ -42,6 +42,8 @@ const configNotiflix = {
   position: 'center-top',
 };
 
+
+
 const loadHome = async event => {
   event.preventDefault();
   homeLink.classList.add('header__nav-link--underline');
@@ -60,6 +62,8 @@ const loadHome = async event => {
   for (const elem of paginationDOM.querySelectorAll('*')) {
     elem.remove();
   }
+  pageName = 'trending';
+  onWindowLoad();
 };
 
 const loadMyLibrary = async event => {

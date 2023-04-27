@@ -1,4 +1,4 @@
-import { fetchMovieById } from './fetchItems';
+import { fetchMovieById } from './fetch-items';
 import { Notify } from 'notiflix';
 
 export const getLibraryMovies = async libraryList => {
