@@ -1,0 +1,1 @@
+{"mappings":"AAAAA,EAAEC,QAAQC,GAAG,QAAQ,WACjBF,EAAE,WAAWG,QAAQ,KACrBH,EAAE,YAAYI,OAAO,IACzB","sources":["src/js/utils/spinner.js"],"sourcesContent":["$(window).on('load', function () {\n    $('.loader').fadeOut(400);\n    $('.content').fadeIn(400);\n});\n"],"names":["$","window","on","fadeOut","fadeIn"],"version":3,"file":"index.22c2159e.js.map"}
